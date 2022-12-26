@@ -1,0 +1,28 @@
+{
+    "name": "scngnr/mdent",
+    "description": "Laravel sanalpazar-eticaret entegrasyon modulleri",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Scngnr\\Mdent\\": "src/"
+        }
+    },
+    "extra": {
+      "laravel": {
+          "providers": [
+              "Scngnr\\Mdent\\Scngnrproviders"
+          ]
+      }
+  },
+    "authors": [
+        {
+            "name": "sercan gungor",
+            "email": "scngnr@gmail.com"
+        }
+    ],
+    "require": {
+        "automattic/woocommerce": "^3.1",
+        "ismail0234/n11-php-api": "^1.1",
+        "ismail0234/trendyol-php-api": "^1.1"
+    }
+}

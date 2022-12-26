@@ -1,0 +1,176 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "f6f855db8078fe5674d9597d8328c138",
+    "packages": [
+        {
+            "name": "automattic/woocommerce",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/woocommerce/wc-api-php.git",
+                "reference": "d3b292f04c0b3b21dced691ebad8be073a83b4ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/woocommerce/wc-api-php/zipball/d3b292f04c0b3b21dced691ebad8be073a83b4ad",
+                "reference": "d3b292f04c0b3b21dced691ebad8be073a83b4ad",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">= 7.1.0"
+            },
+            "require-dev": {
+                "overtrue/phplint": "7.4.x-dev",
+                "phpunit/phpunit": "^8",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Automattic\\WooCommerce\\": [
+                        "src/WooCommerce"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Claudio Sanches",
+                    "email": "claudio.sanches@automattic.com"
+                }
+            ],
+            "description": "A PHP wrapper for the WooCommerce REST API",
+            "keywords": [
+                "api",
+                "woocommerce"
+            ],
+            "support": {
+                "issues": "https://github.com/woocommerce/wc-api-php/issues",
+                "source": "https://github.com/woocommerce/wc-api-php/tree/3.1.0"
+            },
+            "time": "2022-03-18T21:46:17+00:00"
+        },
+        {
+            "name": "ismail0234/n11-php-api",
+            "version": "v1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ismail0234/n11-php-api.git",
+                "reference": "531dc127a46b24acaa89146144864b670c7e1fbf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ismail0234/n11-php-api/zipball/531dc127a46b24acaa89146144864b670c7e1fbf",
+                "reference": "531dc127a46b24acaa89146144864b670c7e1fbf",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "IS\\PazarYeri\\N11\\": "IS/PazarYeri/N11"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "İsmail Satilmiş",
+                    "email": "ismaiil_0234@hotmail.com"
+                }
+            ],
+            "description": "N11 PHP API",
+            "keywords": [
+                "N11",
+                "PHP API",
+                "eticaret",
+                "n11 php api",
+                "pazaryeri"
+            ],
+            "support": {
+                "issues": "https://github.com/ismail0234/n11-php-api/issues",
+                "source": "https://github.com/ismail0234/n11-php-api/tree/v1.1.4"
+            },
+            "funding": [
+                {
+                    "url": "https://www.patreon.com/botbenson",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2021-02-08T06:36:49+00:00"
+        },
+        {
+            "name": "ismail0234/trendyol-php-api",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ismail0234/trendyol-php-api.git",
+                "reference": "a3f3dd4f99a4ac37e98fda1d7f5578edb9a39f1e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ismail0234/trendyol-php-api/zipball/a3f3dd4f99a4ac37e98fda1d7f5578edb9a39f1e",
+                "reference": "a3f3dd4f99a4ac37e98fda1d7f5578edb9a39f1e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "IS\\PazarYeri\\Trendyol\\": "IS/PazarYeri/Trendyol"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "İsmail Satilmiş",
+                    "email": "ismaiil_0234@hotmail.com"
+                }
+            ],
+            "description": "Trendyol PHP API",
+            "keywords": [
+                "PHP API",
+                "eticaret",
+                "pazaryeri",
+                "trendyol",
+                "trendyol php api"
+            ],
+            "support": {
+                "issues": "https://github.com/ismail0234/trendyol-php-api/issues",
+                "source": "https://github.com/ismail0234/trendyol-php-api/tree/v1.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.patreon.com/botbenson",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2021-06-13T12:48:47+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
+}

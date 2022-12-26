@@ -1,0 +1,23 @@
+{
+    "name": "scngn/orders",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Scngnr\\Orders\\": "src/"
+        }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "Scngnr\\Orders\\OrdersProvider"
+        ]
+      }
+    },
+    "authors": [
+        {
+            "name": "scngnr",
+            "email": "scngnr@gmail.com"
+        }
+    ],
+    "require": {}
+}

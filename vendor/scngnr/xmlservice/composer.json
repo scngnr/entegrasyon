@@ -1,0 +1,23 @@
+{
+    "name": "scngnr/xmlservice",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Scngnr\\Xmlservice\\": "src/"
+        }
+    },
+    "extra": {
+  "laravel": {
+    "providers": [
+      "Scngnr\\Xmlservice\\Provider"
+    ]
+  }
+},
+    "authors": [
+        {
+            "name": "scngnr",
+            "email": "scngnr@gmail.com"
+        }
+    ],
+    "require": {}
+}
