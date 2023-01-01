@@ -27,22 +27,11 @@ class XmlAdd extends Controller
   *                          Xml Service
   * 1. databaseXmlKayit metodu Yeni xml eklemek için kullanılacaktır.
   * 2.  Bu method ile xml veritabınna kayıt edilir.
-  * 3.
+  * 3.  Xml Key bilgileri Kayıt edilir.
   * @param xmlName
   * @param xmlink
   ******************************************************************************
   */
-  function _array_key_exists($cur_key, $arr){
-    foreach ($arr as $key => $val){
-        if ($key == $cur_key){
-            return true;
-        }
-        if (is_array($val)){
-            return _array_key_exists($cur_key, $val);
-        }
-    }
-    return false;
-  }
 
   public function xmlAdd(Request $request){
 
@@ -54,34 +43,75 @@ class XmlAdd extends Controller
 
     $XmlServices->xmlAdi         = $request->input('xmlName');
     $XmlServices->xmlLinki       = $request->input('xmlLink');
-    $XmlServices->xmlDurum       = 'aktif degil';
+    $XmlServices->xmlDurum       = 0;
 
     // $xml = simplexml_load_file($request->input('xmlLink'));
-    $xml = simplexml_load_file("https://www.ilktoptan.com/ilktoptan",'SimpleXMLElement', LIBXML_NOCDATA);
-    // $xml = simplexml_load_file("http://localhost/entegrasyon/public/xml/salyangoz-export.xml",'SimpleXMLElement', LIBXML_NOCDATA);
+    // $xml = simplexml_load_file("http://localhost/entegrasyon/public/xml/productsxml.xml",'SimpleXMLElement', LIBXML_NOCDATA);
+    // $xml = simplexml_load_file("http://localhost/entegrasyon/public/xml/ilktoptan.xml",'SimpleXMLElement', LIBXML_NOCDATA);
+    // $xml = simplexml_load_file("http://localhost/entegrasyon/public/xml/salyangoz.xml",'SimpleXMLElement', LIBXML_NOCDATA);
+    $xml = simplexml_load_file($XmlServices->xmlLinki,'SimpleXMLElement', LIBXML_NOCDATA);
     $xml = json_decode(json_encode($xml), true);
 
     $xmlKeyList = array();
     $xmlKey = array();
     $xkey= "";
+
+    //Xml İlk Array Key değerini ve Value $xmlKey değişkenine aktarma
     foreach ($xml as $key => $value) {
 
       $xkey = $key;
       $xmlKey[] = $value;
     }
+
+    if(count($xmlKey) < 2 ){
       $xmlKey =   $xmlKey[0];   //BOş 0 indisini sil
       for ($i=0; $i < count($xmlKey); $i++) {
-
+        $XmlServices->xmlUrunAdet       =  count($xmlKey);
         $keyList = array_keys($xmlKey[$i]);
         $xmlKeyList = array_merge($xmlKeyList, $keyList  );
         $xmlKeyList = (array_unique($xmlKeyList));
+
       }
-      // dd(($xmlKeyList));
-    dd(($xml[$xkey][5]));
+    }else {
+      //Xml İkinci Array Key değerini ve Value $xmlKey değişkenine aktarma
+      foreach ($xmlKey as $key => $value) {
 
+        $xkey = $key;
+        $xmlKey[] = $value;
+      }
+      $xmlKey =   $xmlKey[$xkey][0];   //BOş 0 indisini sil
+        for ($i=0; $i < count($xmlKey); $i++) {
+          $XmlServices->xmlUrunAdet       =  count($xmlKey);
+          $keyList = array_keys($xmlKey[$i]);
+          $xmlKeyList = array_merge($xmlKeyList, $keyList  );
+          $xmlKeyList = (array_unique($xmlKeyList));
 
+        }
+    }
+    $databaseXml[0] = $xmlKeyList;
+    $databaseXml[1] = [
+      '0' => '',
+      '1' => '',
+      '2' => '',
+      '3' => '',
+      '4' => '',
+      '5' => '',
+      '6' => '',
+      '7' => '',
+      '8' => '',
+      '9' => '',
+      '10' => '',
+      '11' => '',
+      '12' => '',
+      '13' => '',
+      '14' => '',
+      '15' => '',
+      '16' => '',
+    ];
+    $databaseXml[2] = $xkey;
 
-
+    $XmlServices->urunBilgileri  =  json_encode($databaseXml);
+    $XmlServices->save();
     return redirect()->back();
   }
 }

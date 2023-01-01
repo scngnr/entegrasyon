@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => 'e3d39607369a88655b407e2fc0263277194cae59',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -446,12 +446,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => 'e3d39607369a88655b407e2fc0263277194cae59',
             'dev_requirement' => false,
         ),
         'laravel/pint' => array(
@@ -996,7 +996,7 @@
             'aliases' => array(
                 0 => '9999999-dev',
             ),
-            'reference' => 'b99b3b591afd5f73fbe2b751cd5a40ddeafcebda',
+            'reference' => '5a9d7adab5f0a93d28135eb1b13e7c50a578b26d',
             'dev_requirement' => false,
         ),
         'scngnr/xmlservice' => array(
@@ -1007,7 +1007,7 @@
             'aliases' => array(
                 0 => '9999999-dev',
             ),
-            'reference' => '680d82b1c0a07ca1059cf4f9518914d4b160834f',
+            'reference' => '6ad38780ec87b9b41e5b3f22c9952f5e40d01693',
             'dev_requirement' => false,
         ),
         'sebastian/cli-parser' => array(

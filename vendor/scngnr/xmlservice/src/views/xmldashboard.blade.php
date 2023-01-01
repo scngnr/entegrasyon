@@ -2,6 +2,7 @@
 
 @section('pageContent')
 
+
 <!--begin::Content-->
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
   <!--begin::Container-->
@@ -44,22 +45,6 @@
                       <div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments</div>
                     </div>
                     <!--end::Heading-->
-                    <!--begin::Menu item-->
-                    <div class="menu-item px-3">
-                      <a href="#" class="menu-link px-3">Create Invoice</a>
-                    </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu item-->
-                    <div class="menu-item px-3">
-                      <a href="#" class="menu-link flex-stack px-3">Create Payment
-                      <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i></a>
-                    </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu item-->
-                    <div class="menu-item px-3">
-                      <a href="#" class="menu-link px-3">Generate Bill</a>
-                    </div>
-                    <!--end::Menu item-->
                     <!--begin::Menu item-->
                     <div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
                       <a href="#" class="menu-link px-3">
@@ -127,7 +112,7 @@
                 <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                   <!--begin::Number-->
                   <div class="d-flex align-items-center">
-                    <div class="fs-4 fw-bolder">29 Jan, 2021</div>
+                    <div class="fs-4 fw-bolder">31 DEC 2023</div>
                   </div>
                   <!--end::Number-->
                   <!--begin::Label-->
@@ -152,7 +137,7 @@
                   <!--begin::Number-->
                   <div class="d-flex align-items-center">
                     <!--end::Svg Icon-->
-                    <div class="fs-4 fw-bolder" data-kt-countup="true" data-kt-countup-value="15000" data-kt-countup-prefix="$">0</div>
+                    <div class="fs-4 fw-bolder" data-kt-countup="true" data-kt-countup-value="{{$toplamUrunAdeti}}" data-kt-countup-prefix="">0</div>
                   </div>
                   <!--end::Number-->
                   <!--begin::Label-->
@@ -173,37 +158,7 @@
         <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
           <!--begin::Nav item-->
           <li class="nav-item">
-            <a class="nav-link text-active-primary py-5 me-6 active" href="../../demo3/dist/apps/projects/project.html">Xml Import</a>
-          </li>
-          <!--end::Nav item-->
-          <!--begin::Nav item-->
-          <li class="nav-item">
-            <a class="nav-link text-active-primary py-5 me-6" href="../../demo3/dist/apps/projects/targets.html">Xml Export</a>
-          </li>
-          <!--end::Nav item-->
-          <!--begin::Nav item-->
-          <li class="nav-item">
-            <a class="nav-link text-active-primary py-5 me-6" href="../../demo3/dist/apps/projects/budget.html">Budget</a>
-          </li>
-          <!--end::Nav item-->
-          <!--begin::Nav item-->
-          <li class="nav-item">
-            <a class="nav-link text-active-primary py-5 me-6" href="../../demo3/dist/apps/projects/users.html">Users</a>
-          </li>
-          <!--end::Nav item-->
-          <!--begin::Nav item-->
-          <li class="nav-item">
-            <a class="nav-link text-active-primary py-5 me-6" href="../../demo3/dist/apps/projects/files.html">Files</a>
-          </li>
-          <!--end::Nav item-->
-          <!--begin::Nav item-->
-          <li class="nav-item">
-            <a class="nav-link text-active-primary py-5 me-6" href="../../demo3/dist/apps/projects/activity.html">Activity</a>
-          </li>
-          <!--end::Nav item-->
-          <!--begin::Nav item-->
-          <li class="nav-item">
-            <a class="nav-link text-active-primary py-5 me-6" href="../../demo3/dist/apps/projects/settings.html">Settings</a>
+            <a class="nav-link text-active-primary py-5 me-6 active" href="/xmlservice">Xml Import</a>
           </li>
           <!--end::Nav item-->
         </ul>
@@ -221,26 +176,9 @@
       <div class="card-header mt-5">
         <!--begin::Card title-->
         <div class="card-title flex-column">
-          <h3 class="fw-bolder mb-1">Xml Listesi</h3>
+          <h3 class="fw-bolder mb-1 fs-7 text-gray-400 text-uppercase">Xml Listesi</h3>
         </div>
         <!--begin::Card title-->
-        <!--begin::Card toolbar-->
-        <div class="card-toolbar my-1">
-          <!--begin::Search-->
-          <div class="d-flex align-items-center position-relative my-1">
-            <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-            <span class="svg-icon svg-icon-3 position-absolute ms-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="black" />
-                <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="black" />
-              </svg>
-            </span>
-            <!--end::Svg Icon-->
-            <input type="text" id="kt_filter_search" class="form-control form-control-solid form-select-sm w-150px ps-9" placeholder="Search Order" />
-          </div>
-          <!--end::Search-->
-        </div>
-        <!--begin::Card toolbar-->
       </div>
       <!--end::Card header-->
       <!--begin::Card body-->
@@ -280,25 +218,49 @@
                       <div class="d-flex align-items-center">
                         <!--begin::Info-->
                         <div class="d-flex flex-column justify-content-center">
-                          <a href="" class="fs-6 text-gray-800 text-hover-primary">{{$xml->xmlAdi}}</a>
+                          <a href="" class="fs-6 text-gray-400 text-hover-primary">{{$xml->xmlAdi}}</a>
                         </div>
                         <!--end::Info-->
                       </div>
                       <!--end::User-->
                     </td>
-                    <td>{{$xml->xmlAdi}}</td>
-                    <td>{{$xml->xmlUrunAdet}}</td>
+                    <td class="fs-6 text-gray-400 text-hover-primary">{{$xml->updated_at}}</td>
+                    <td class="fs-6 text-gray-400 text-hover-primary" >{{$xml->xmlUrunAdet}}</td>
                     <td>
                       <span class="badge badge-light-info fw-bolder px-4 py-3">{{$xml->xmlDurum}}</span>
                     </td>
                     <td class="text-end">
 
-                      <a href="/xmlservice/edit/{{$xml->id}}" class="btn btn-light btn-sm">Düzenle</a>
-                      <a href="/xmlservice/manuel-start/{{$xml->id}}" class="btn btn-info btn-sm">Manuel Başlat</a>
-                      <!-- id değeri base64 ile kodlanıyor -->
-                      <a href="#" class="menu-link px-3" data-kt-ecommerce-product-filter="delete_row" >Delete</a>
-
-                      <a href="/xmlservice/delete/{{base64_encode(base64_encode(base64_encode($xml->id)))}}" data-kt-ecommerce-product-filter="delete_row" class="btn btn-dark btn-sm">Sil</a>
+                      <!--begin::Actions-->
+                      <div class="d-flex mb-4">
+                        <!--begin::Menu-->
+                        <div class="me-0">
+                          <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                            <i class="bi bi-three-dots fs-3"></i>
+                          </button>
+                          <!--begin::Menu 3-->
+                          <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
+                            <!--begin::Menu item-->
+                            <div class="menu-item px-3 my-1">
+                              <a href="/xmlservice/edit/{{$xml->id}}" class="menu-link px-3">Düzenle</a>
+                            </div>
+                            <!--end::Menu item-->
+                            <!--begin::Menu item-->
+                            <div class="menu-item px-3 my-1">
+                              <a href="/xmlservice/manuel-start/{{$xml->id}}" class="menu-link px-3">Manuel Başlat</a>
+                            </div>
+                            <!--end::Menu item-->
+                            <!--begin::Menu item-->
+                            <div class="menu-item px-3 my-1">
+                              <a href="/xmlservice/delete/{{base64_encode(base64_encode(base64_encode($xml->id)))}}" class="menu-link px-3">Sil</a>
+                            </div>
+                            <!--end::Menu item-->
+                          </div>
+                          <!--end::Menu 3-->
+                        </div>
+                        <!--end::Menu-->
+                      </div>
+                      <!--end::Actions-->
                     </td>
                   </tr>
                 @endforeach

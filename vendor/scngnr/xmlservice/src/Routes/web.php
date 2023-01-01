@@ -6,7 +6,13 @@ use Scngnr\Xmlservice\Models\XmlService;
 
 Route::prefix('/xmlservice')->group(function(){
 
-  Route::get('/', function(){ $xmlList = XmlService::all(); return view('view::xmldashboard', ['xmlList' => $xmlList]); });
+  Route::get('/', function(){
+    $xmlList = XmlService::all();
+    $toplamUrunAdeti = 0;
+    for ($i=0; $i < count($xmlList); $i++) {
+      $toplamUrunAdeti = $toplamUrunAdeti + $xmlList[$i]['xmlUrunAdet'];
+    }
+    return view('view::xmldashboard', ['xmlList' => $xmlList, 'toplamUrunAdeti' => $toplamUrunAdeti]); });
   Route::get('/edit/{id}', function($id){
 
     $productSpect = new \Scngnr\Product\Product;
@@ -22,10 +28,11 @@ Route::prefix('/xmlservice')->group(function(){
   Route::post('/add', [Scngnr\Xmlservice\Http\Controllers\XmlAdd::class, 'xmlAdd']);   //yeni xml ekle
   Route::post('/xmlEditInfo/{id}', [Scngnr\Xmlservice\Http\Controllers\XmlController::class, 'xmlEditInfo']);   //yeni xml ekle
   Route::get('/delete/{id}', [Scngnr\Xmlservice\Http\Controllers\XmlController::class, 'databaseXmlDelete']);   //yeni xml ekle
-  Route::get('/manuel-start/{id}', [Scngnr\Xmlservice\Http\Controllers\XmlController::class, 'manuelXmlProductCheck']);   //yeni xml ekle
+  // Route::get('/manuel-start/{id}', [Scngnr\Xmlservice\Http\Controllers\XmlController::class, 'manuelXmlProductCheck']);   //yeni xml ekle
   Route::get('/xmlProductCheck', [Scngnr\Xmlservice\Http\Controllers\XmlController::class, 'xmlProductCheck']);   //yeni xml ekle
 
   Route::get('/kategori/fiyat/add/{kategori}/{magza}/{magzaId}/{fiyat}/{islem}/{formul}/{product}', [Scngnr\Xmlservice\Http\Controllers\XmlController::class, 'kategoriFiyatAdd']);   //kategori fiyat ekle
-
+  //Yeni Düzenlemeler
+  Route::get('/manuel-start/{id}', [Scngnr\Xmlservice\Http\Controllers\XmlAddProduct::class, 'XmlAddProduct']);   //yeni xml ekle
 
 });

@@ -56,23 +56,33 @@ class Product
   }
 
 
-    public function productSaves($stokCode , $spect, $deger, $source){
+    public function productSaves($stokCode , $spect, $source){
 
       $kontrol = en_product::where('stockCode', $stokCode)->first();
-
       if($kontrol){
-
         $product =  en_product::find($kontrol->id);
-        $product[$spect] = $deger;
+        // $product[$spect] = $deger;
+        $spectKeylist = array_keys($spect);
+        for ($i=0; $i < count($spectKeylist) ; $i++) {
+          $spectKeyName = $spectKeylist[$i];
+          if(array_key_exists($spectKeyName, $spect)){
+            $product[$spectKeyName] = $spect[$spectKeyName];
+          }
+        }
         $product->update();
-
       }else {
         $product = new en_product;
         $product['stockCode'] = $stokCode;
-        $product[$spect] = $deger;
+        // $product[$spect] = $deger;
+        $spectKeylist = array_keys($spect);
+        for ($i=0; $i < count($spectKeylist) ; $i++) {
+          $spectKeyName = $spectKeylist[$i];
+          if(array_key_exists($spectKeyName, $spect)){
+            $product[$spectKeyName] = $spect[$spectKeyName];
+          }
+        }
+        $product['source'] = $source;
         $product->save();
-
       }
-
     }
 }

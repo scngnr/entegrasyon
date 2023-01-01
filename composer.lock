@@ -4015,12 +4015,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/scngnr/product.git",
-                "reference": "b99b3b591afd5f73fbe2b751cd5a40ddeafcebda"
+                "reference": "5a9d7adab5f0a93d28135eb1b13e7c50a578b26d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scngnr/product/zipball/b99b3b591afd5f73fbe2b751cd5a40ddeafcebda",
-                "reference": "b99b3b591afd5f73fbe2b751cd5a40ddeafcebda",
+                "url": "https://api.github.com/repos/scngnr/product/zipball/5a9d7adab5f0a93d28135eb1b13e7c50a578b26d",
+                "reference": "5a9d7adab5f0a93d28135eb1b13e7c50a578b26d",
                 "shasum": ""
             },
             "default-branch": true,
@@ -4051,7 +4051,7 @@
                 "issues": "https://github.com/scngnr/product/issues",
                 "source": "https://github.com/scngnr/product/tree/master"
             },
-            "time": "2022-06-04T17:18:17+00:00"
+            "time": "2023-01-01T09:39:25+00:00"
         },
         {
             "name": "scngnr/xmlservice",
@@ -4059,12 +4059,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/scngnr/xmlservice.git",
-                "reference": "680d82b1c0a07ca1059cf4f9518914d4b160834f"
+                "reference": "6ad38780ec87b9b41e5b3f22c9952f5e40d01693"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scngnr/xmlservice/zipball/680d82b1c0a07ca1059cf4f9518914d4b160834f",
-                "reference": "680d82b1c0a07ca1059cf4f9518914d4b160834f",
+                "url": "https://api.github.com/repos/scngnr/xmlservice/zipball/6ad38780ec87b9b41e5b3f22c9952f5e40d01693",
+                "reference": "6ad38780ec87b9b41e5b3f22c9952f5e40d01693",
                 "shasum": ""
             },
             "default-branch": true,
@@ -4095,7 +4095,7 @@
                 "issues": "https://github.com/scngnr/xmlservice/issues",
                 "source": "https://github.com/scngnr/xmlservice/tree/master"
             },
-            "time": "2022-06-04T17:57:13+00:00"
+            "time": "2023-01-01T09:38:39+00:00"
         },
         {
             "name": "symfony/console",
