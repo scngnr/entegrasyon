@@ -87,7 +87,6 @@ class XmlKategoriBul extends Controller
         } catch (\Exception $e) {
 
         }
-
       }
     }
 }

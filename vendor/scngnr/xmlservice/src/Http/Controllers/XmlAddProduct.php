@@ -82,8 +82,8 @@ class XmlAddProduct extends Controller
           }
       }
     }
-    $xmlKategoris = new \Scngnr\XmlService\Http\Controllers\XmlKategoriBul();
-    $xmlKategorileBul->xmlKategorileBul();
+    $xmlKategori = new \Scngnr\Xmlservice\Http\Controllers\XmlKategoriBul;
+    $xmlKategori->XmlKategoriBul();
 
     return redirect()->back();
   }

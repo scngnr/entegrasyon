@@ -20,8 +20,8 @@ class CreateXmlServicesTable extends Migration
             $table->string('xmlLinki');
             $table->string('xmlDurum')->default('aktif değil');
             $table->string('xmlUrunAdet')->nullable();
-
             $table->json('urunBilgileri');
+            $table->json('xmlSetting')->nullable();
             $table->timestamps();
         });
     }
