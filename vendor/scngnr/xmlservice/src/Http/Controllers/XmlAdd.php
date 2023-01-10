@@ -3,66 +3,29 @@
 namespace Scngnr\XmlService\Http\Controllers;
 
 use Scngnr\Xmlservice\Models\XmlService;
-use Scngnr\Xmlservice\Models\en_category_info as Cat;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
-use IS\PazarYeri\N11\N11Client;
-use Scngnr\XmlService\Events;
 use Illuminate\Http\Request;
-
-use App\Models\Pazaryeri;
-use App\Models\Urunler;
-use App\Models\Order;
-use Carbon\Carbon;
-
-use Scngnr\Product\Models\en_product;
-use Scngnr\Product\Product;
-use Scngnr\Xmlservice\Models\XmlKategori;
 
 class XmlAdd extends Controller
 {
-  /**
-  *
-  *****************************************************************************
-  *                          Xml Service
-  * 1. databaseXmlKayit metodu Yeni xml eklemek için kullanılacaktır.
-  * 2.  Bu method ile xml veritabınna kayıt edilir.
-  * 3.  Xml Key bilgileri Kayıt edilir.
-  * @param xmlName
-  * @param xmlink
-  ******************************************************************************
-  */
-
   public function xmlAdd(Request $request){
-
     ini_set('memory_limit', '3000M');
     ini_set('max_execution_time', '300');
-
     // dd($request->input());
     $XmlServices = new XmlService;
-
     $XmlServices->xmlAdi         = $request->input('xmlName');
     $XmlServices->xmlLinki       = $request->input('xmlLink');
     $XmlServices->xmlDurum       = 0;
-
-    // $xml = simplexml_load_file($request->input('xmlLink'));
-    // $xml = simplexml_load_file("http://localhost/entegrasyon/public/xml/productsxml.xml",'SimpleXMLElement', LIBXML_NOCDATA);
-    // $xml = simplexml_load_file("http://localhost/entegrasyon/public/xml/ilktoptan.xml",'SimpleXMLElement', LIBXML_NOCDATA);
-    // $xml = simplexml_load_file("http://localhost/entegrasyon/public/xml/salyangoz.xml",'SimpleXMLElement', LIBXML_NOCDATA);
     $xml = simplexml_load_file($XmlServices->xmlLinki,'SimpleXMLElement', LIBXML_NOCDATA);
     $xml = json_decode(json_encode($xml), true);
-
     $xmlKeyList = array();
     $xmlKey = array();
     $xkey= "";
-
     //Xml İlk Array Key değerini ve Value $xmlKey değişkenine aktarma
     foreach ($xml as $key => $value) {
-
       $xkey = $key;
       $xmlKey[] = $value;
     }
-
     if(count($xmlKey) < 2 ){
       $xmlKey =   $xmlKey[0];   //BOş 0 indisini sil
       for ($i=0; $i < count($xmlKey); $i++) {
@@ -70,12 +33,10 @@ class XmlAdd extends Controller
         $keyList = array_keys($xmlKey[$i]);
         $xmlKeyList = array_merge($xmlKeyList, $keyList  );
         $xmlKeyList = (array_unique($xmlKeyList));
-
       }
     }else {
       //Xml İkinci Array Key değerini ve Value $xmlKey değişkenine aktarma
       foreach ($xmlKey as $key => $value) {
-
         $xkey = $key;
         $xmlKey[] = $value;
       }
@@ -85,7 +46,6 @@ class XmlAdd extends Controller
           $keyList = array_keys($xmlKey[$i]);
           $xmlKeyList = array_merge($xmlKeyList, $keyList  );
           $xmlKeyList = (array_unique($xmlKeyList));
-
         }
     }
     $databaseXml[0] = $xmlKeyList;
@@ -109,7 +69,6 @@ class XmlAdd extends Controller
       '16' => '',
     ];
     $databaseXml[2] = $xkey;
-
     $XmlServices->urunBilgileri  =  json_encode($databaseXml);
     $XmlServices->save();
     return redirect()->back();

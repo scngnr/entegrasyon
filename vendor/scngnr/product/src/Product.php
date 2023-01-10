@@ -65,23 +65,22 @@ class Product
         $spectKeylist = array_keys($spect);
         for ($i=0; $i < count($spectKeylist) ; $i++) {
           $spectKeyName = $spectKeylist[$i];
-          if(array_key_exists($spectKeyName, $spect)){
-            $product[$spectKeyName] = $spect[$spectKeyName];
+          //if(array_key_exists($spectKeyName, $spect)){
+          if($spect[$spectKeyName]){
+              $product[$spectKeyName] = $spect[$spectKeyName];
           }
         }
         $product->update();
       }else {
         $product = new en_product;
-        $product['stockCode'] = $stokCode;
-        // $product[$spect] = $deger;
+        $product['source'] = $stokCode;
         $spectKeylist = array_keys($spect);
         for ($i=0; $i < count($spectKeylist) ; $i++) {
           $spectKeyName = $spectKeylist[$i];
-          if(array_key_exists($spectKeyName, $spect)){
+          if($spect[$spectKeyName]){
             $product[$spectKeyName] = $spect[$spectKeyName];
           }
         }
-        $product['source'] = $source;
         $product->save();
       }
     }

@@ -174,15 +174,15 @@
               <!--end::Stats-->
               <!--begin::Users-->
               <div class="symbol-group symbol-hover mb-3">
-                <?php $urunler = Scngnr\Product\Models\en_product::all()->random(30)->where('source', $xmlInfo->xmlAdi); ?>
-                <?php $countUrunler = count($urunler); ?>
-                @foreach($urunler as $product)
+                <?php //$urunler = Scngnr\Product\Models\en_product::all()->random(30)->where('source', $xmlInfo->xmlAdi); ?>
+                <?php //$countUrunler = count($urunler); ?>
+                {{ -- @foreach($urunler as $product)
                   <!--begin::User-->
                   <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="{{$product->name}}">
                     <img src="{{$product->pictures}}" alt="PIC">
                   </div>
                   <!--end::User-->
-                @endforeach
+                @endforeach --}}
                 <!--begin::All users-->
                 <a href="#" class="symbol symbol-35px symbol-circle" data-bs-toggle="modal" data-bs-target="#kt_modal_view_users">
                   <span class="symbol-label bg-dark text-inverse-dark fs-8 fw-bolder" data-bs-toggle="tooltip" data-bs-trigger="hover" title="View more users">+<?php echo  $xmlInfo->xmlUrunAdet - $countUrunler ; ?></span>
