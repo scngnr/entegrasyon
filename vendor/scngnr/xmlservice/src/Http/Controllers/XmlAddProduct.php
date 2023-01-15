@@ -70,7 +70,6 @@ class XmlAddProduct extends Controller
               }
             }
             $product->productSaves($databaseUrun['stockCode'],$databaseUrun,$xmlService->xmlAdi);
-            $product->productSaves($databaseUrun['stockCode'],$databaseUrun,$xmlService->xmlAdi);
         }
       }else {
         //Xml İkinci Array Key değerini ve Value $xmlKey değişkenine aktarma

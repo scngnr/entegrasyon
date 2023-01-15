@@ -30,6 +30,8 @@
 		<link href="{{asset('assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css"/>
 		<link href="{{asset('assets/plugins/custom/prismjs/prismjs.bundle.css')}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+		<!-- Focus plugin -->
+		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.5/cdn.js" integrity="sha512-1fAkW3wqng/WNu86nQEgW3/RuPns2JxdC6WwCFJhqB/fL9VIWduIJmktYGrlBu99aoxwmWKCLY4AHlzDsh6LqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     @livewireStyles
 	</head>
@@ -1055,6 +1057,7 @@
 					<!--end::Header-->
           {{$slot}}
 					@yield('pageContent')
+					@livewire('livewire-ui-modal')
 					<!--begin::Footer-->
 					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
 						<!--begin::Container-->
