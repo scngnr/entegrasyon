@@ -48,7 +48,7 @@
                     <!--begin::Menu item-->
                     <div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
                       <a href="#" class="menu-link px-3">
-                        <span class="menu-title">Subscription</span>
+                        <span class="menu-title">Subscriptions</span>
                         <span class="menu-arrow"></span>
                       </a>
                       <!--begin::Menu sub-->

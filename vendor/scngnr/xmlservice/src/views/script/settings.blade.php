@@ -7,7 +7,7 @@
       <h3 class="fs-6 text-gray-400">Kategori Düzenlemeleri</h3>
     </div>
     <div class="card-title flex-column">
-      <a href="#" class="btn btn-sm btn-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_new_target">Ekle</a>
+      <a onclick="Livewire.emit('openModal', 'xml-service.ayarlar.kategori.rules-component')" class="btn btn-sm btn-primary me-3" >Ekle</a>
     </div>
     <!--begin::Card title-->
   </div>
