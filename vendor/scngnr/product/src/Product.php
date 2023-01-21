@@ -2,12 +2,19 @@
 
 namespace Scngnr\Product;
 use Scngnr\Product\Models\en_product;
-
+use Scngnr\Product\Helper\Gateway;
 /**
  *
  */
-class Product
+class Product extends Gateway
 {
+
+  /*
+  *
+  *
+  *
+  *
+  */
 
   public function productIndex(){
 
@@ -36,6 +43,13 @@ class Product
     return $productSpect;
   }
 
+  /*
+  *
+  *
+  *
+  *
+  */
+
   public function productVaryationIndex(){
     $productVaryationSpect = [
       'productId',
@@ -49,12 +63,25 @@ class Product
     return $productVaryationSpect;
 
   }
+  /*
+  *
+  *
+  *
+  *
+  */
 
   public function productFind($sutun, $stockCode){
 
     return en_product::where($sutun, $stockCode)->first();
   }
 
+    /**
+    * Yeni Ürün Yüklemek İçin ve Güncellemek için
+    *
+    *   @version Master -- BetaTest
+    *   @deprecated verssiyon Master Kullanımdan kaldırıldı
+    *   @author Sercan Güngör
+    */
 
     public function productSaves($stokCode , $spect, $source){
 
