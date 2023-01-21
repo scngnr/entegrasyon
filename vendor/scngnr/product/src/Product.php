@@ -9,11 +9,12 @@ use Scngnr\Product\Helper\Gateway;
 class Product extends Gateway
 {
 
-  /*
+  /**
   *
   *
-  *
-  *
+  *   @version Master -- BetaTest
+  *   @deprecated verssiyon Master Kullanımdan kaldırıldı
+  *   @author Sercan Güngör
   */
 
   public function productIndex(){
@@ -43,11 +44,12 @@ class Product extends Gateway
     return $productSpect;
   }
 
-  /*
+  /**
   *
   *
-  *
-  *
+  *   @version Master -- BetaTest
+  *   @deprecated verssiyon Master Kullanımdan kaldırıldı
+  *   @author Sercan Güngör
   */
 
   public function productVaryationIndex(){

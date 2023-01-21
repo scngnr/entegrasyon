@@ -18,14 +18,35 @@ Class Product {
       *  @author Sercan güngör
       */
 
-    public function index($paginate = FALSE, $paginateValue = 0)
+    public function index($paginate = FALSE, $paginateValue = 10)
     {
       if($paginate){
-        return en_product::all()->paginate($paginateValue);
+        return en_product::paginate($paginateValue);
       }else {
         return en_product::all();
       }
     }
+
+    /**
+    * Veritabanı Like Araması
+    *
+    *
+    *  @param bool $paginate --Default False
+    *  @param int $paginate   --Value
+    *  @version Master -- BetaTest
+    *  @author Sercan güngör
+    */
+
+  public function likeSearch($searcValue, $paginateValue = 10)
+  {
+    return en_product::where('name', 'LIKE', '%' . $searcValue . '%')
+                          ->orWhere('price', 'LIKE', '%' . $searcValue . '%')
+                          ->orWhere('stockCode', 'LIKE', '%' . $searcValue . '%')
+                          ->orWhere('source', 'LIKE', '%' . $searcValue . '%')
+                          ->orWhere('gtin', 'LIKE', '%' . $searcValue . '%')
+                          ->paginate($paginateValue);
+  }
+
 
     /**
     *
