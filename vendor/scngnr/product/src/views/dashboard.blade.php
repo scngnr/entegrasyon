@@ -105,32 +105,32 @@
                     <!--end::Checkbox-->
                     <!--begin::Status=-->
                     <td class="text-center pe-0" data-order="Scheduled">
-                        @if($product->status == 'Satışta')
+                        @if($product->status == 3)
                           <div class="badge badge-light-primary">
-                            {{$product->status}}
+                            Satışta
                           </div>
-                          @elseif($product->status == 'Taslak')
+                          @elseif($product->status == 1)
                             <div class="badge badge-light-warning">
-                              {{$product->status}}
+                              Taslak
                             </div>
-                            @elseif($product->status == 'Pasif')
+                            @elseif($product->status == 0)
                               <div class="badge badge-light-danger">
-                                {{$product->status}}
+                                Pasif
                               </div>
                         @endif
                     </td>
                     <!--end::Status=-->
                     <!--begin::Category=-->
-                    <td><div class="d-flex align-items-center"><a href="/product/{{$product->id}}" class="symbol symbol-50px"><span class="symbol-label" style="background-image:url({{$product->pictures}});"></span></a><div class="ms-5"><a href="/product/edit/{{$product->id}}" class="text-gray-800 text-hover-primary fs-5 fw-bolder" data-kt-ecommerce-product-filter="product_name">{{$product->name}}</a></div></div></td>
+                    <td><div class="d-flex align-items-center"><a href="/product/{{$product->id}}" class="symbol symbol-50px"><span class="symbol-label" style="background-image:url({{$product->pictures}});"></span></a><div class="ms-5"><a href="/product/edit/{{$product->id}}" class=" text-hover-danger badge badge-white" data-kt-ecommerce-product-filter="product_name">{{$product->name}}</a></div></div></td>
                     <!--end::Category=-->
                     <!--begin::SKU=-->
-                    <td class="text-center pe-0"><span class="fw-bolder">{{$product->stockCode}}</span></td>
+                    <td class="text-center pe-0"><span class="badge badge-light">{{$product->stockCode}}</span></td>
                     <!--end::SKU=-->
                     <!--begin::Qty=-->
-                    <td class="text-center pe-0" data-order="{{$product->stock}}"><span class="badge badge-light-warning">Low stock</span><span class="fw-bolder text-warning ms-3">{{$product->stock}}</span></td>
+                    <td class="text-center pe-0" data-order="{{$product->stock}}">@if($product->stock < 10 ) <span class="badge badge-light-danger">Low stock </span><span class="fw-bolder text-danger ms-3">{{$product->stock}}</span> @else <span class="fw-bolder text-primary ms-3">{{$product->stock}}</span> @endif</td>
                     <!--end::Qty=-->
                     <!--begin::Price=-->
-                    <td class="text-center pe-0"><span class="fw-bolder text-dark">{{$product->price}}</span></td>
+                    <td class="text-center pe-0"><span class="badge badge-light-primary">{{$product->price}}</span></td>
                     <!--end::Price=-->
                     <!--begin::Rating-->
                     <td class="text-end pe-0 overflow-auto" data-order="rating-5">
