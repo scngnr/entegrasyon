@@ -12,6 +12,8 @@ use Scngnr\Xmlservice\Models\XmlKategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
+use Scngnr\Product\Product;
+
 class productDashboard extends Component
 {
   use WithPagination;
@@ -32,32 +34,18 @@ class productDashboard extends Component
        $this->allSelectCheckBox++;
      }
 
-     /**
-     *
-     * Seçilen Ürünler, şeçilen pazaryerine yüklenir
-     * @param mazgaId
-     * @param array $id
-     *
-     */
-
-     public function kontrol(request $request , $number){
-
-        $response = Http::asForm()->post('http://localhost/product/add/woocommerce/'. 1  .'/'. json_encode($this->selectedCheckBox));
-     }
 
     public function render()
     {
+        //Product Sınıfını Çağır
+        $products = new Product;
 
         if($this->searchProduct){
-          $allProduct = Urunler::where('name', 'LIKE', '%' . $this->searchProduct . '%')
-                                    ->orWhere('price', 'LIKE', '%' . $this->searchProduct . '%')
-                                    ->orWhere('stockCode', 'LIKE', '%' . $this->searchProduct . '%')
-                                    ->paginate($this->paginate);
-
+          //Product Sınıfını kullnarak Like aramsı yap
+          $allProduct =$products->product->likeSearch($this->searchProduct, $this->paginate);
         }else {
-          $allProduct = Urunler::
-          //all();
-          paginate($this->paginate);
+          //Product Sınıfından Ürünleri Al
+          $allProduct =$products->product->index(true, $this->paginate);
         }
 
         /*//////////////////////////////////////////////////////////////////////
@@ -81,6 +69,10 @@ class productDashboard extends Component
         // $urun = explode('>', $urun->katagorisi);
         // $urunc = count($urun);
         // dd($urun[$urunc-1]);
-        return view('view::dashboard', ['allProduct' => $allProduct, 'parentkategoriler' => $parentkategoriler,'kategoriler' => $kategoriler, 'pF' => pazaryeri_fiyat::all()])->layout('layouts.mainLayout');
+        return view('view::dashboard', [
+          'allProduct' => $allProduct,
+          'parentkategoriler' => $parentkategoriler,
+          'kategoriler' => $kategoriler,
+          'pF' => pazaryeri_fiyat::all()])->layout('layouts.mainLayout');
     }
   }
