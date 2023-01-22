@@ -82,13 +82,13 @@
                     <input onclick="checkAll()"class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_products_table .form-check-input"  />
                   </div>
                 </th>
-                <th class="min-w-70px">durum</th>
-                <th class=" min-w-300px">ürün</th>
-                <th class="text-center min-w-70px">sku</th>
-                <th class="text-center min-w-70px">qty</th>
-                <th class="text-center min-w-70px">fiyatı</th>
-                <th class="text-center min-w-70px">Pazaryeri Fiyatı</th>
-                <th class="text-center min-w-70px">Actions</th>
+                <th class="min-w-80px">durum</th>
+                <th class="w-150px text-center">ürün</th>
+                <th class="text-center min-w-70px text-center">sku</th>
+                <th class="text-center min-w-70px text-center">qty</th>
+                <th class="text-center min-w-70px text-center">fiyatı</th>
+                <th class="text-center min-w-250px text-center">Pazaryeri Fiyatı</th>
+                <th class=" text-center">Actions</th>
               </tr>
               <!--end::Table row-->
             </thead>
@@ -133,7 +133,7 @@
                     <td class="text-center pe-0"><span class="badge badge-light-primary">{{$product->price}}</span></td>
                     <!--end::Price=-->
                     <!--begin::Rating-->
-                    <td class="text-end pe-0 overflow-auto" data-order="rating-5">
+                    <td class="text-end pe-0 overflow-auto text-center" data-order="rating-5">
                       <div class="d-flex gap-2 mb-2">
                         @include('view::scripts.newproductTablePazaryeriDropDownFiyatList')
                       </div>
