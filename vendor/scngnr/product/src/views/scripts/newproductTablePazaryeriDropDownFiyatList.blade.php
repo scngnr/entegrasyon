@@ -15,28 +15,25 @@
   <div>
     <?php $findMagza = \Scngnr\Product\Models\pazaryeri_fiyat::where('magaza', $olusturulanMagzalar[$i])->get() ?>
 
-
-
         <i data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
           <?php
           try {
                 switch ($findMagza[0]->pazaryeri) {
                   case 'woocommerce': echo "<span class=\"iconify\" data-icon=\"logos:woocommerce-icon\"></span>"; break;
                   case 'opencart': echo "<span class=\"iconify\" data-icon=\"la:opencart\"></span>"; break;
-                  case 'magento': echo "<span class=\"iconify\" data-icon=\"simple-icons:magento\"></span>"; break;
-                  case 'n11': echo "<span class=\"iconify\" data-icon=\"gridicons:product-downloadable\"></span>"; break;
-                  case 'trendyol': echo "<span class=\"iconify\" data-icon=\"gridicons:product-external\"></span>"; break;
-                  case 'hepsiburada': echo "<span class=\"iconify\" data-icon=\"gridicons:product-virtual\"></span>"; break;
-                  case 'ciceksepeti': echo "<span class=\"iconify\" data-icon=\"icon-park:ad-product\"></span>"; break;
-                  case 'lazimbana': echo "<span class=\"iconify\" data-icon=\"la:product-hunt\"></span>"; break;
-                  case 'ideasoft': echo "<span class=\"iconify\" data-icon=\"ri:product-hunt-fill\"></span>"; break;
+                  case 'magento': echo "<img src=\"https://www.magento-tr.com/wp-content/uploads/2020/10/cropped-58480ecccef1014c0b5e492c-32x32.png\" width=\"13\" height=\"13\">"; break;
+                  case 'n11': echo "<img src=\"https://n11scdn.akamaized.net/static/favicon.ico\" width=\"13\" height=\"13\">"; break;
+                  case 'trendyol': echo "<img src=\"https://cdn.dsmcdn.com/seller-center/shared/common/favicon.ico\" width=\"13\" height=\"13\">"; break;
+                  case 'hepsiburada': echo "<img src=\"https://images.hepsiburada.net/assets/sfstatic/Content/images/favicon-new.ico\" width=\"13\" height=\"13\">"; break;
+                  case 'ciceksepeti': echo "<img src=\"https://cdn03.ciceksepeti.com/Themes/Ciceksepeti/Assets/images/apple/apple-touch-icon-57x57.png\" width=\"13\" height=\"13\">"; break;
+                  case 'lazimbana': echo "<img src=\"https://www.lazimbana.com/web/images/favicon.png\" width=\"13\" height=\"13\">"; break;
+                  case 'ideasoft': echo "<img src=\"https://www.ideasoft.com.tr/wp-content/uploads/2020/03/ideasoft-kurumsal-kimlik-mavi-pantone.png\" width=\"13\" height=\"13\">"; break;
                   case 'instagram': echo "<span class=\"iconify\" data-icon=\"akar-icons:instagram-fill\"></span>"; break;
                 }
               } catch (\Exception $e) {
 
               }
            ?>
-
         <!--end::Svg Icon--></i>
 
         <!--begin::Menu-->
