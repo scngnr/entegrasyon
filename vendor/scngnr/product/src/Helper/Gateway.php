@@ -16,9 +16,11 @@ Class Gateway {
   public $apiSecret;
 
   protected $allServices = array(
-    'category' => 'category',
-    'product'  => 'product',
-    'varyation'=> 'varyation'
+    'category'    => 'category',
+    'product'     => 'product',
+    'varyation'   => 'varyation',
+    'magza'       => 'magza',
+    'magzaPrice'  => 'magzaPrice'
   );
 
   /**
