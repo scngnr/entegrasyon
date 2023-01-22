@@ -143,8 +143,8 @@
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-3">
-                          <a type="button" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#productStatusModal" onclick="productDurumModal('{{$product->id}}', '{{$product->status}}')">Ürün Durum Değiştir</a>
-
+                          <a type="button" class="menu-link px-3" wire:click="update(1)">Ürün Durum Değiştir</a>
+                          {{-- data-bs-toggle="modal" data-bs-target="#productStatusModal" onclick="productDurumModal('{{$product->id}}', '{{$product->status}}')"--}}
                         </div>
                         <!--end::Menu item-->
                         <hr>
