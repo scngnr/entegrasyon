@@ -14,8 +14,8 @@
             x-on:keydown.tab.prevent="$event.shiftKey || nextFocusable().focus()"
             x-on:keydown.shift.tab.prevent="prevFocusable().focus()"
             x-show="show"
-            class="fixed inset-0 z-10 overflow-y-auto"
-            style="display: none;"
+            class="fixed inset-0 overflow-y-auto"
+            style="display: none; z-index:110 !important;"
     >
         <div class="flex items-end justify-center min-h-screen px-4 pt-4 pb-10 text-center md:block md:p-0">
             <div
@@ -45,7 +45,9 @@
                     x-bind:class="modalWidth"
                     class="w-100 inline-block w-full align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all md:my-8 md:align-middle md:w-full"
                     id="modal-container"
-                    style="max-width:70% !important;"
+                    style="
+                    max-width:80% !important;
+                    max-height:70% !important;
             >
                 @forelse($components as $id => $component)
                     <div x-show.immediate="activeComponent == '{{ $id }}'" x-ref="{{ $id }}" wire:key="{{ $id }}">
