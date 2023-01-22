@@ -154,17 +154,17 @@
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-3">
-                          <a type="button" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_create_account" onclick="tekilUrunChange('{{$product->id}}')">Kategori Eşleştir</a>
+                          <a type="button" class="menu-link px-3" onclick="Livewire.emit('openModal', 'product.dashboard.modal.product-category', {{ json_encode(["productId" => $product->id]) }})"  {{-- data-bs-toggle="modal" data-bs-target="#kt_modal_create_account" onclick="tekilUrunChange('{{$product->id}}')" --}}>Kategori Eşleştir</a>
                         </div>
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-3">
-                          <a type="button" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_add_customer" onclick="formAction('{{$product->id}}')">Pazaryeri Fiyat Ekle</a>
+                          <a type="button" class="menu-link px-3" onclick="Livewire.emit('openModal', 'product.dashboard.modal.product-seller-account-add', {{ json_encode(["productId" => $product->id]) }})" {{-- data-bs-toggle="modal" data-bs-target="#kt_modal_add_customer" onclick="formAction('{{$product->id}}')"--}}>Pazaryeri Fiyat Ekle</a>
                         </div>
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-3">
-                          <a type="button" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#productStatusModal" onclick="addProductId({{$product->id}})">Ürün Durum Değiştir</a>
+                          <a type="button" class="menu-link px-3" onclick="Livewire.emit('openModal', 'product.dashboard.modal.product-statu', {{ json_encode(["productId" => $product->id]) }})" {{-- data-bs-toggle="modal" data-bs-target="#productStatusModal" onclick="addProductId({{$product->id}})"--}}>Ürün Durum Değiştir</a>
 
                         </div>
                         <!--end::Menu item-->
