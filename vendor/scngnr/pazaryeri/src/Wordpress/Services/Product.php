@@ -16,7 +16,7 @@ Class Claim {
 
     public function index()
     {
-
+      //$woocommerce->get('products');
     }
 
     /**
@@ -29,41 +29,30 @@ Class Claim {
 
     public function create()
     {
-      $urunler = Urunler::find();
+      $data = [
+          'name' => $urunler[$i]->adi,
+          'type' => 'simple',
+          'regular_price' => $urunler[$i]->fiyati,
+          'description' => $urunler[$i]->aciklama,
+          'short_description' => $urunler[$i]->aciklma,
+          'stock_quantity' => $urunler[$i]->stok,
+          'manage_stock' => true,
+          'categories' => [
+              [
+                  'id' => 9
+              ],
+              [
+                  'id' => 14
+              ]
+          ],
+          'images' => [
+              [
+                  'src' => $urunler[$i]->resim
+              ]
+          ]
+      ];
 
-      for ($i=0; $i < count($urunler); $i++) {
-        $woocommerce = new Client(
-            'http://scngnrtest.infinityfreeapp.com/',
-            'ck_3890365a7b810a9e26a02b4ffd7757da53cb49e9',
-            'cs_bcc21877f10b1f25b59fce1446674b02f75b020a',
-            [
-              'version' => 'wc/v3',
-            ]
-        );
-        $data = [
-            'name' => $urunler[$i]->adi,
-            'type' => 'simple',
-            'regular_price' => $urunler[$i]->fiyati,
-            'description' => $urunler[$i]->aciklama,
-            'short_description' => $urunler[$i]->aciklma,
-            'stock_quantity' => $urunler[$i]->stok,
-            'manage_stock' => true,
-            'categories' => [
-                [
-                    'id' => 9
-                ],
-                [
-                    'id' => 14
-                ]
-            ],
-            'images' => [
-                [
-                    'src' => $urunler[$i]->resim
-                ]
-            ]
-        ];
- 
-      }
+      //Wordpress Request Methoduna İstek atılarak Ürün oluşturulması sağlanacak
     }
 
     /**
@@ -76,7 +65,11 @@ Class Claim {
 
     public function update()
     {
+      $data = [
+          'regular_price' => '24.54'
+      ];
 
+      //Wordpress Request Methoduna İstek atılarak Ürün oluşturulması sağlanacak
     }
 
     /**
@@ -89,6 +82,6 @@ Class Claim {
 
     public function delete()
     {
-
+      //$woocommerce->delete('products/794', ['force' => true]);
     }
 }
