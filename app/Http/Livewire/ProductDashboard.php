@@ -32,6 +32,17 @@ class productDashboard extends Component
      public function allSelect(){
 
        $this->allSelectCheckBox++;
+       $products = new Product;
+       $allProduct =$products->product->likeSearch($this->searchProduct, $this->paginate);
+
+       if($this->allSelectCheckBox == 1){
+         for ($i=0; $i < count($allProduct->items()); $i++) {                  //sayfada bulunan tüm ürünlerin idlerini al
+           $this->selectedCheckBox[$i] = $allProduct[$i]->id;                  // Tüm checkboxları işaretle
+         }
+       }else if ($this->allSelectCheckBox == 2) {
+         $this->selectedCheckBox = [];
+         $this->allSelectCheckBox = 0;
+       }
      }
 
 
@@ -48,19 +59,7 @@ class productDashboard extends Component
           $allProduct =$products->product->index(true, $this->paginate);
         }
 
-        /*//////////////////////////////////////////////////////////////////////
-        *                       checkbox Select İşlemi
-        * ///////////////////////////////////////////////////////////////////////
-        *
-        */
-        if($this->allSelectCheckBox == 1){
-          for ($i=0; $i < count($allProduct->items()); $i++) {                  //sayfada bulunan tüm ürünlerin idlerini al
-            $this->selectedCheckBox[$i] = $allProduct[$i]->id;                  // Tüm checkboxları işaretle
-          }
-        }else if ($this->allSelectCheckBox == 2) {
-          $this->selectedCheckBox = [];
-          $this->allSelectCheckBox = 0;
-        }
+
 
         $parentkategoriler = XmlKategori::where('parentCategory', NULL)->get();
         $kategoriler = XmlKategori::all();
