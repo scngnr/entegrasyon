@@ -49,6 +49,7 @@ return array(
     'Scngnr\\Pazaryeri\\' => array($vendorDir . '/scngnr/pazaryeri/src'),
     'Scngnr\\Orders\\' => array($vendorDir . '/scngnr/orders/src'),
     'Scngn\\Parasut\\' => array($vendorDir . '/scngnr/parasut/src'),
+    'RealRashid\\SweetAlert\\' => array($vendorDir . '/realrashid/sweet-alert/src'),
     'Ramsey\\Uuid\\' => array($vendorDir . '/ramsey/uuid/src'),
     'Ramsey\\Collection\\' => array($vendorDir . '/ramsey/collection/src'),
     'Psy\\' => array($vendorDir . '/psy/psysh/src'),
