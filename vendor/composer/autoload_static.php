@@ -95,7 +95,9 @@ class ComposerStaticInitfca1872ae88e36099602b561c4382ac5
             'Spatie\\Backtrace\\' => 17,
             'Scngnr\\Xmlservice\\' => 18,
             'Scngnr\\Product\\' => 15,
+            'Scngnr\\Pazaryeri\\' => 17,
             'Scngnr\\Orders\\' => 14,
+            'Scngn\\Parasut\\' => 14,
         ),
         'R' => 
         array (
@@ -364,9 +366,17 @@ class ComposerStaticInitfca1872ae88e36099602b561c4382ac5
         array (
             0 => __DIR__ . '/..' . '/scngnr/product/src',
         ),
+        'Scngnr\\Pazaryeri\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/scngnr/pazaryeri/src',
+        ),
         'Scngnr\\Orders\\' => 
         array (
             0 => __DIR__ . '/..' . '/scngnr/orders/src',
+        ),
+        'Scngn\\Parasut\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/scngnr/parasut/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -655,7 +665,6 @@ class ComposerStaticInitfca1872ae88e36099602b561c4382ac5
         'App\\Http\\Livewire\\Admin\\Ayarlar\\Account\\Settings' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/Ayarlar/Account/Settings.php',
         'App\\Http\\Livewire\\Admin\\Customer' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/Customer.php',
         'App\\Http\\Livewire\\Admin\\Dashboard' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/Dashboard.php',
-        'App\\Http\\Livewire\\Admin\\Orders' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/Orders.php',
         'App\\Http\\Livewire\\Admin\\Pazaryeri' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/Pazaryeri.php',
         'App\\Http\\Livewire\\Admin\\Pazaryeri\\N11' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/Pazaryeri/N11.php',
         'App\\Http\\Livewire\\Admin\\Pazaryeri\\N11\\KategoriEslestirme' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/Pazaryeri/N11/KategoriEslestirme.php',
@@ -671,6 +680,13 @@ class ComposerStaticInitfca1872ae88e36099602b561c4382ac5
         'App\\Http\\Livewire\\Components\\ProductOwerview' => __DIR__ . '/../..' . '/app/Http/Livewire/Components/ProductOwerview.php',
         'App\\Http\\Livewire\\Components\\SalesOwerview' => __DIR__ . '/../..' . '/app/Http/Livewire/Components/SalesOwerview.php',
         'App\\Http\\Livewire\\Components\\StockOwerviews' => __DIR__ . '/../..' . '/app/Http/Livewire/Components/StockOwerviews.php',
+        'App\\Http\\Livewire\\Product\\Dashboard\\Modal\\ProductCategory' => __DIR__ . '/../..' . '/app/Http/Livewire/Product/Dashboard/Modal/ProductCategory.php',
+        'App\\Http\\Livewire\\Product\\Dashboard\\Modal\\ProductSellerAccountAdd' => __DIR__ . '/../..' . '/app/Http/Livewire/Product/Dashboard/Modal/ProductSellerAccountAdd.php',
+        'App\\Http\\Livewire\\Product\\Dashboard\\Modal\\ProductStatu' => __DIR__ . '/../..' . '/app/Http/Livewire/Product/Dashboard/Modal/ProductStatu.php',
+        'App\\Http\\Livewire\\Product\\Dashboard\\Modal\\ProductUpdate' => __DIR__ . '/../..' . '/app/Http/Livewire/Product/Dashboard/Modal/ProductUpdate.php',
+        'App\\Http\\Livewire\\Siparis' => __DIR__ . '/../..' . '/app/Http/Livewire/Siparis.php',
+        'App\\Http\\Livewire\\XmlService\\Ayarlar\\Kategori\\RulesComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/XmlService/Ayarlar/Kategori/RulesComponent.php',
+        'App\\Http\\Livewire\\XmlService\\Ayarlar\\Product\\RulesComponent' => __DIR__ . '/../..' . '/app/Http/Livewire/XmlService/Ayarlar/Product/RulesComponent.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
@@ -5831,7 +5847,10 @@ class ComposerStaticInitfca1872ae88e36099602b561c4382ac5
         'Ramsey\\Uuid\\Validator\\GenericValidator' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/GenericValidator.php',
         'Ramsey\\Uuid\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/ValidatorInterface.php',
         'ReturnTypeWillChange' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/ReturnTypeWillChange.php',
+        'Scngnr\\Orders\\Models\\Order' => __DIR__ . '/..' . '/scngnr/orders/src/Models/Order.php',
         'Scngnr\\Orders\\OrdersProvider' => __DIR__ . '/..' . '/scngnr/orders/src/OrdersProvider.php',
+        'Scngnr\\Product\\Helper\\BaseCall' => __DIR__ . '/..' . '/scngnr/product/src/Helper/BaseCall.php',
+        'Scngnr\\Product\\Helper\\Gateway' => __DIR__ . '/..' . '/scngnr/product/src/Helper/Gateway.php',
         'Scngnr\\Product\\Http\\Controllers\\MarketPlaceController' => __DIR__ . '/..' . '/scngnr/product/src/Http/Controllers/MarketPlaceController.php',
         'Scngnr\\Product\\Http\\Controllers\\PriceController' => __DIR__ . '/..' . '/scngnr/product/src/Http/Controllers/PriceController.php',
         'Scngnr\\Product\\Http\\Livewire\\categoryDashboard' => __DIR__ . '/..' . '/scngnr/product/src/Http/Livewire/categoryDashboard.php',
@@ -5846,6 +5865,10 @@ class ComposerStaticInitfca1872ae88e36099602b561c4382ac5
         'Scngnr\\Product\\Models\\woocommerce_category' => __DIR__ . '/..' . '/scngnr/product/src/Models/woocommerce_category.php',
         'Scngnr\\Product\\Product' => __DIR__ . '/..' . '/scngnr/product/src/Product.php',
         'Scngnr\\Product\\ProductProvider' => __DIR__ . '/..' . '/scngnr/product/src/ProductProvider.php',
+        'Scngnr\\Product\\Services\\Magza' => __DIR__ . '/..' . '/scngnr/product/src/Services/Magza.php',
+        'Scngnr\\Product\\Services\\MagzaPrice' => __DIR__ . '/..' . '/scngnr/product/src/Services/MagzaPrice.php',
+        'Scngnr\\Product\\Services\\Product' => __DIR__ . '/..' . '/scngnr/product/src/Services/Product.php',
+        'Scngnr\\Product\\Services\\Varyation' => __DIR__ . '/..' . '/scngnr/product/src/Services/Varyation.php',
         'Scngnr\\Xmlservice\\provider' => __DIR__ . '/..' . '/scngnr/xmlservice/src/provider.php',
         'SebastianBergmann\\CliParser\\AmbiguousOptionException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/AmbiguousOptionException.php',
         'SebastianBergmann\\CliParser\\Exception' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/Exception.php',

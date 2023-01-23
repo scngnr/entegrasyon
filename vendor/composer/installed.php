@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'fe1b18d05254c47cbb5f8554510194fb02a3810c',
+        'reference' => 'bb5509126eb07fddbd2a6e9d76aa1ff201a51762',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -437,12 +437,12 @@
             'dev_requirement' => false,
         ),
         'laravel/jetstream' => array(
-            'pretty_version' => 'v2.10.3',
-            'version' => '2.10.3.0',
+            'pretty_version' => 'v2.11.0',
+            'version' => '2.11.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/jetstream',
             'aliases' => array(),
-            'reference' => '3eb0052a6415189885b79ec5401efe6bbd368755',
+            'reference' => '80641e2b490bf442033be45b5e9b2d1e3635b3a9',
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
@@ -451,7 +451,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'fe1b18d05254c47cbb5f8554510194fb02a3810c',
+            'reference' => 'bb5509126eb07fddbd2a6e9d76aa1ff201a51762',
             'dev_requirement' => false,
         ),
         'laravel/pint' => array(
@@ -536,12 +536,12 @@
             'dev_requirement' => false,
         ),
         'livewire/livewire' => array(
-            'pretty_version' => 'v2.10.6',
-            'version' => '2.10.6.0',
+            'pretty_version' => 'v2.11.0',
+            'version' => '2.11.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../livewire/livewire',
             'aliases' => array(),
-            'reference' => '020ad095cf1239138b097d22b584e2701ec3edfb',
+            'reference' => '8667099d5889cab760d1d0083cdcebaa3d595733',
             'dev_requirement' => false,
         ),
         'maatwebsite/excel' => array(
@@ -986,6 +986,28 @@
                 0 => '9999999-dev',
             ),
             'reference' => '3e1a777cdfbfc6e4a2c5a0dee70df7af26ea3fb4',
+            'dev_requirement' => false,
+        ),
+        'scngnr/parasut' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../scngnr/parasut',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'reference' => '3b87a3ffb6fca53bd94621f0c9f73f730a79773b',
+            'dev_requirement' => false,
+        ),
+        'scngnr/pazaryeri' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../scngnr/pazaryeri',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'reference' => '64098660df572324756c9741f46c769e820320b5',
             'dev_requirement' => false,
         ),
         'scngnr/product' => array(
