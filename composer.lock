@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b24d02d5414f86d442bbb67f7616176f",
+    "content-hash": "2fe1d8f18378ede23bc1ecf6c75b51be",
     "packages": [
         {
             "name": "automattic/woocommerce",
@@ -1474,16 +1474,16 @@
         },
         {
             "name": "laravel/jetstream",
-            "version": "v2.10.3",
+            "version": "v2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "3eb0052a6415189885b79ec5401efe6bbd368755"
+                "reference": "80641e2b490bf442033be45b5e9b2d1e3635b3a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/3eb0052a6415189885b79ec5401efe6bbd368755",
-                "reference": "3eb0052a6415189885b79ec5401efe6bbd368755",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/80641e2b490bf442033be45b5e9b2d1e3635b3a9",
+                "reference": "80641e2b490bf442033be45b5e9b2d1e3635b3a9",
                 "shasum": ""
             },
             "require": {
@@ -1540,7 +1540,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2022-08-01T15:42:13+00:00"
+            "time": "2022-08-08T13:25:08+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -2070,32 +2070,32 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.10.6",
+            "version": "v2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "020ad095cf1239138b097d22b584e2701ec3edfb"
+                "reference": "8667099d5889cab760d1d0083cdcebaa3d595733"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/020ad095cf1239138b097d22b584e2701ec3edfb",
-                "reference": "020ad095cf1239138b097d22b584e2701ec3edfb",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/8667099d5889cab760d1d0083cdcebaa3d595733",
+                "reference": "8667099d5889cab760d1d0083cdcebaa3d595733",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "^7.0|^8.0|^9.0",
-                "illuminate/support": "^7.0|^8.0|^9.0",
-                "illuminate/validation": "^7.0|^8.0|^9.0",
+                "illuminate/database": "^7.0|^8.0|^9.0|^10.0",
+                "illuminate/support": "^7.0|^8.0|^9.0|^10.0",
+                "illuminate/validation": "^7.0|^8.0|^9.0|^10.0",
                 "league/mime-type-detection": "^1.9",
                 "php": "^7.2.5|^8.0",
                 "symfony/http-kernel": "^5.0|^6.0"
             },
             "require-dev": {
                 "calebporzio/sushi": "^2.1",
-                "laravel/framework": "^7.0|^8.0|^9.0",
+                "laravel/framework": "^7.0|^8.0|^9.0|^10.0",
                 "mockery/mockery": "^1.3.1",
-                "orchestra/testbench": "^5.0|^6.0|^7.0",
-                "orchestra/testbench-dusk": "^5.2|^6.0|^7.0",
+                "orchestra/testbench": "^5.0|^6.0|^7.0|^8.0",
+                "orchestra/testbench-dusk": "^5.2|^6.0|^7.0|^8.0",
                 "phpunit/phpunit": "^8.4|^9.0",
                 "psy/psysh": "@stable"
             },
@@ -2131,7 +2131,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v2.10.6"
+                "source": "https://github.com/livewire/livewire/tree/v2.11.0"
             },
             "funding": [
                 {
@@ -2139,7 +2139,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-06-19T02:54:20+00:00"
+            "time": "2023-01-15T23:43:31+00:00"
         },
         {
             "name": "maatwebsite/excel",
@@ -4008,6 +4008,81 @@
                 "source": "https://github.com/scngnr/Orders/tree/master"
             },
             "time": "2022-06-04T17:50:19+00:00"
+        },
+        {
+            "name": "scngnr/parasut",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/scngnr/parasut.git",
+                "reference": "3b87a3ffb6fca53bd94621f0c9f73f730a79773b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/scngnr/parasut/zipball/3b87a3ffb6fca53bd94621f0c9f73f730a79773b",
+                "reference": "3b87a3ffb6fca53bd94621f0c9f73f730a79773b",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Scngn\\Parasut\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "scngnr",
+                    "email": "scngnr@gmail.com"
+                }
+            ],
+            "description": "Laravel parasut fatura entegrasyonu modülü",
+            "support": {
+                "issues": "https://github.com/scngnr/parasut/issues",
+                "source": "https://github.com/scngnr/parasut/tree/master"
+            },
+            "time": "2022-06-04T16:42:14+00:00"
+        },
+        {
+            "name": "scngnr/pazaryeri",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/scngnr/pazaryeri.git",
+                "reference": "64098660df572324756c9741f46c769e820320b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/scngnr/pazaryeri/zipball/64098660df572324756c9741f46c769e820320b5",
+                "reference": "64098660df572324756c9741f46c769e820320b5",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Scngnr\\Pazaryeri\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sercan güngör"
+                }
+            ],
+            "description": "Pazaryeri Siniflari, Ürün Ekleme Ve Günlleme islerini yürütecek sinif",
+            "support": {
+                "issues": "https://github.com/scngnr/pazaryeri/issues",
+                "source": "https://github.com/scngnr/pazaryeri/tree/main"
+            },
+            "time": "2023-01-22T14:47:44+00:00"
         },
         {
             "name": "scngnr/product",
@@ -9300,6 +9375,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "scngnr/orders": 20,
+        "scngnr/parasut": 20,
+        "scngnr/pazaryeri": 20,
         "scngnr/product": 20,
         "scngnr/xmlservice": 20
     },

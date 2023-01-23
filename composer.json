@@ -16,6 +16,8 @@
         "maatwebsite/excel": "^3.1",
         "psr/simple-cache": "2.0",
         "scngnr/orders": "dev-master",
+        "scngnr/parasut": "dev-master",
+        "scngnr/pazaryeri": "dev-main",
         "scngnr/product": "dev-master",
         "scngnr/xmlservice": "dev-master",
         "wire-elements/modal": "^1.0"
