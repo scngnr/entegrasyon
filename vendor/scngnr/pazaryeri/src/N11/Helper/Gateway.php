@@ -1,7 +1,7 @@
 <?php
 
-namespace Scngnr\Trendyol\Helper;
-use Scngnr\Trendyol\exception;
+namespace Scngnr\N11\Helper;
+use Scngnr\N11\exception;
 
 Class Gateway {
 
@@ -16,7 +16,23 @@ Class Gateway {
   public $apiSecret;
 
   protected $allServices = array(
-    
+    'categoryService'                     => 'CategoryService',                     // Kategori Servisleri
+    'CityService'                         => 'CityService',                         //Şehir Servisleri
+    'ProductService'                      => 'ProductService',                      //Ürün Servisleri
+    'ProductSellingService'               => 'ProductSellingService',               //Ürün Satış Servisleri
+    'ProductStockService'                 => 'ProductStockService',                 //Ürün Stok Servisleri
+    'OrderService'                        => 'OrderService',                        //Sipariş Servisleri
+    'ShipmentCompanyService'              => 'ShipmentCompanyService',              //Kargo Şirketi Servisi
+    'ShipmentService'                     => 'ShipmentService',                     //Teslimat Şablonu Servisi
+    'SettlementService'                   => 'SettlementService',                   //Satış/Uzlaşma Servisi
+    'TicketService'                       => 'TicketService',                       //Mağaza Talep Servisi
+    'SapCommissionEInvoiceDetailService'  => 'SapCommissionEInvoiceDetailService',  //Sap Commission E-Invoice Detail  Servisi
+    'SapBankStatementEInvoiceService'     => 'SapBankStatementEInvoiceService',     //Sap Bank Statement E-Invoice  Servisi
+    'ClaimCancelService'                  => 'ClaimCancelService',                  //Sipariş İptal Talepleri Servis
+    'ReturnService'                       => 'ReturnService',                       //Sipariş İade Talepleri Servisi
+    'ClaimExchangeService'                => 'ClaimExchangeService',                //Sipariş Değişim Talepleri Servis
+    'InvoiceService'                      => 'InvoiceService',                      //E-Fatura Servisi
+    'CatalogService'                      => 'CatalogService',                      //Katalog Servisleri
   );
 
   /**
@@ -55,7 +71,7 @@ Class Gateway {
   protected function createServiceInstance($serviceName)
   {
     //dd($serviceName);
-    $serviceName = "Scngnr\Trendyol\Services\\" .  $serviceName;
+    $serviceName = "Scngnr\N11\Services\\" .  $serviceName;
     if (!class_exists($serviceName)) {
       throw new exception("Geçersiz Dosya Yolu!");
     }

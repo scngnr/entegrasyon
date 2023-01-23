@@ -1,6 +1,6 @@
 <?php
 
-namespace Scngnr\Trendyol\Helper;
+namespace Scngnr\N11\Helper;
 
 Class BaseCall {
 
