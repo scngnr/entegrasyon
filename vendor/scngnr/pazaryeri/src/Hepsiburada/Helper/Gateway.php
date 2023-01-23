@@ -1,7 +1,7 @@
 <?php
 
-namespace Scngnr\Trendyol\Helper;
-use Scngnr\Trendyol\exception;
+namespace Scngnr\Hepsiburada\Helper;
+use Scngnr\Hepsiburada\exception;
 
 Class Gateway {
 
@@ -16,7 +16,11 @@ Class Gateway {
   public $apiSecret;
 
   protected $allServices = array(
-    
+    'catolog' => 'catolog',
+    'listing' => 'listing',
+    'order' => 'order',
+    'claim' => 'claim',
+    'transaction' => 'transaction',
   );
 
   /**
@@ -55,7 +59,7 @@ Class Gateway {
   protected function createServiceInstance($serviceName)
   {
     //dd($serviceName);
-    $serviceName = "Scngnr\Trendyol\Services\\" .  $serviceName;
+    $serviceName = "Scngnr\Hepsiburada\Services\\" .  $serviceName;
     if (!class_exists($serviceName)) {
       throw new exception("Geçersiz Dosya Yolu!");
     }

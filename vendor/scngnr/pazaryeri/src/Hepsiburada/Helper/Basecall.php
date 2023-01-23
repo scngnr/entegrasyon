@@ -1,6 +1,6 @@
 <?php
 
-namespace Scngnr\Trendyol\Helper;
+namespace Scngnr\Hepsiburada\Helper;
 
 Class BaseCall {
 

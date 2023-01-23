@@ -1,5 +1,5 @@
 <?php
 
-namespace Scngnr\Trendyol\Helper;
+namespace Scngnr\Hepsiburada\Helper;
 
-Class Bnexception extends \Exception {}
+Class exception extends \Exception {}
