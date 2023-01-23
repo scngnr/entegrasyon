@@ -1,7 +1,7 @@
 
 <div >
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+  {{print_r($selectedCheckBox)}}
   <div class="content d-flex flex-column flex-column-fluid" >
     <!--begin::Container-->
     <div class="container-xxl" id="kt_content_container">
@@ -45,12 +45,12 @@
                 <!--end::Menu item-->
                 <!--begin::Menu item-->
                 <div class="menu-item px-3">
-                  <a type="button" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_add_customer" >Pazaryeri Fiyat Ekle</a>
+                  <a type="button" class="menu-link px-3" onclick="Livewire.emit('openModal', 'product.dashboard.modal.product-seller-account-add', {{ json_encode(["productId" => $selectedCheckBox]) }})"  >Pazaryeri Fiyat Ekle</a>
                 </div>
                 <!--end::Menu item-->
                 <!--begin::Menu item-->
                 <div class="menu-item px-3">
-                  <a type="button" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#productStatusModal" >Ürün Durum Değiştir</a>
+                  <a type="button" class="menu-link px-3" onclick="Livewire.emit('openModal', 'product.dashboard.modal.product-statu', {{ json_encode(["productId" => $selectedCheckBox]) }})" >Ürün Durum Değiştir</a>
 
                 </div>
                 <!--end::Menu item-->
@@ -79,7 +79,7 @@
               <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
                 <th class="w-10px pe-2">
                   <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                    <input onclick="checkAll()"class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_products_table .form-check-input"  />
+                    <input wire:click="allSelect()" class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_ecommerce_products_table .form-check-input"  />
                   </div>
                 </th>
                 <th class="min-w-80px">durum</th>
@@ -99,7 +99,7 @@
                     <!--begin::Checkbox-->
                     <td>
                       <div class="form-check form-check-sm form-check-custom form-check-solid">
-                        <input class="form-check-input" type="checkbox"  onclick="productCheckboxList({{$product->id}})" name="{{$product->id}}" />
+                        <input wire:model="selectedCheckBox"class="form-check-input" type="checkbox" name="[]" value="{{$product->id}}"/>
                       </div>
                     </td>
                     <!--end::Checkbox-->
@@ -149,7 +149,7 @@
                       <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-200px py-4" data-kt-menu="true">
                         <!--begin::Menu item-->
                         <div class="menu-item px-3">
-                          <a type="button" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#urunEslestirModal" >@if( \Scngnr\Product\Models\pazaryeri_fiyat::where('productId', $product->id)->first()) Ürünü Güncelle @else ÜRün eşleştir @endif</a>
+                          <a type="button" class="menu-link px-3"  wire:click="WooCommerce({{$product->Id}})" > WooCommerce Ekle/Güncelle </a>
                         </div>
                         <!--end::Menu item-->
                         <!--begin::Menu item-->

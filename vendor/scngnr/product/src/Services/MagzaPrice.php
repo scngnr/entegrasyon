@@ -82,16 +82,26 @@ Class MagzaPrice {
   *  @author Sercan güngör
   */
 
-  public function create ($productId, $pazaryeri, $magza , $fiyat , $fiyatKaynak = "", $indirimliFiyat = "", $indirimliFiyatBaslangic = "", $indirimliFiyatBitis = "" ){
+  public function create ($productId, $pazaryeri, $magza , $fiyatKaynak ,  $islem, $formul){
+
     $productFiyat = new pazaryeri_fiyat;
     $productFiyat->productId                =  $productId;
     $productFiyat->pazaryeri                =  $pazaryeri;
     $productFiyat->magaza                   =  $magza;
-    $productFiyat->fiyat                    =  $fiyat;
+
+    //Fiyat Belirleme
+    if($fiyatKaynak == 'BF'){
+        $product = new \Scngnr\Product\Product;
+       $product = $product->product->find($productId);
+       switch ($islem) {
+         case 'topla': $productFiyat->fiyat = $product->price + $formul; break;
+         case 'cikar': $productFiyat->fiyat = $product->price - $formul; break;
+         case 'carp':  $productFiyat->fiyat = $product->price  * $formul; break;
+         case 'bol':   $productFiyat->fiyat = $product->price  / $formul; break;
+       }
+    }
+
     $productFiyat->fiyatKaynak              =  $fiyatKaynak;
-    $productFiyat->indirimliFiyat           =  $indirimliFiyat;
-    $productFiyat->indirimliFiyatBaslangic  =  $indirimliFiyatBaslangic;
-    $productFiyat->indirimliFiyatBitis      =  $indirimliFiyatBitis;
     $productFiyat->save();
   }
 

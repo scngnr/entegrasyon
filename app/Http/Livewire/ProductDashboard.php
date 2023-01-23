@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 use Scngnr\Product\Product;
+use Scngnr\Pazaryeri\Wordpress\Service;
 
 class productDashboard extends Component
 {

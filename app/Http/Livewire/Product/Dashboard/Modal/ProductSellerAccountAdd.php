@@ -11,6 +11,8 @@ class ProductSellerAccountAdd extends ModalComponent
   public $productId, $searchValue, $magzaId, $fiyat, $islem, $formul;
    public $pazaryeri = array();
 
+
+
    public function pazaryeriSearch(){
 
      $pazaryeri = new Product;
@@ -21,11 +23,13 @@ class ProductSellerAccountAdd extends ModalComponent
       if(is_array($this->productId)){
         for ($i=0; $i < count($this->productId); $i++) {
           $pFId = new Product;
-          $pFId->magzaPrice->create($this->productId[$i], $this->searchValue, $this->magzaId, $this->fiyat);
+          $pFId->magzaPrice->create($this->productId[$i], $this->searchValue, $this->magzaId, $this->fiyat, $this->islem, $this->formul);
+          return redirect('/product');
         }
       }else {
         $pFId = new Product;
-        $pFId->magzaPrice->create($this->productId, $this->searchValue, $this->magzaId, $this->fiyat);
+        $pFId->magzaPrice->create($this->productId, $this->searchValue, $this->magzaId, $this->fiyat, $this->islem, $this->formul);
+        return redirect('/product');
       }
     }
     public function render()

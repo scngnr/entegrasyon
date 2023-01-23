@@ -3,8 +3,9 @@
 namespace Scngnr\Pazaryeri\Wordpress\Services;
 
 use Scngnr\Pazaryeri\Wordpress\exception;
+use Scngnr\Pazaryeri\Wordpress\Helper\Request;
 
-Class Claim {
+Class Claim extends Request{
 
       /**
       *
@@ -27,31 +28,21 @@ Class Claim {
     *  @author Sercan güngör
     */
 
-    public function create()
+    public function create($name, $price, $desc, $shDesc, $stock, $manageStock = TRUE, $category = array(), $images = array())
     {
       $data = [
-          'name' => $urunler[$i]->adi,
+          'name' => $name,
           'type' => 'simple',
-          'regular_price' => $urunler[$i]->fiyati,
-          'description' => $urunler[$i]->aciklama,
-          'short_description' => $urunler[$i]->aciklma,
-          'stock_quantity' => $urunler[$i]->stok,
-          'manage_stock' => true,
-          'categories' => [
-              [
-                  'id' => 9
-              ],
-              [
-                  'id' => 14
-              ]
-          ],
-          'images' => [
-              [
-                  'src' => $urunler[$i]->resim
-              ]
-          ]
+          'regular_price' => $price,
+          'description' => $dsc,
+          'short_description' => $shDesc,
+          'stock_quantity' => $stock,
+          'manage_stock' => $manageStock,
+          'categories' => $category,
+          'images' => $images,
       ];
 
+      $this->getResponse();
       //Wordpress Request Methoduna İstek atılarak Ürün oluşturulması sağlanacak
     }
 
