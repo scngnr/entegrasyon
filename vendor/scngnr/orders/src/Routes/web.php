@@ -12,6 +12,9 @@ Route::get('schedule/run', function(){
 //
 
 
+Route::middleware(['web', 'auth'])->get('/orders', App\Http\Livewire\Siparis::class);
+// Route::middleware(['auth:sanctum', 'verified'])->get('/orders/orderdetail/{id}', App\Http\Livewire\Admin\Pazaryeri\Trendyol\OrderDetail::class);
+//
 
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/pazaryeri/n11/urungonder', [Controllers\Pazaryeri\N11\ProductController::class, 'saveProduct']);

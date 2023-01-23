@@ -114,7 +114,7 @@
                       case 'N11': echo $arrayOrder['orderDetail']['orderNumber']; break;
                       case 'trendyol': echo $arrayOrder['orderNumber']; break;
                       case 'Hepsiburada': echo $order->siparisNo; break;
-                    } ?>                    
+                    } ?>
                   </a>
                 </td>
                 <!--end::Order ID=-->
