@@ -22,7 +22,7 @@ class ProductController extends Controller
     }
 
     /**
-    * Ürün Yüklü mü Değil mi
+    * Ara kontrol
     * Yüklü ise Update methodu çalışacak
     * Değil ise Create methodu çalışacak
     *
