@@ -12,5 +12,12 @@
             "name": "Sercan güngör"
         }
     ],
+    "extra": {
+  "laravel": {
+    "providers": [
+      "Scngnr\\Pazaryeri\\Provider"
+    ]
+  }
+},
     "require": {}
 }

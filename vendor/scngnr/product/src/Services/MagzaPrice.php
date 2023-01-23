@@ -21,6 +21,20 @@ Class MagzaPrice {
     }
 
     /**
+    * Veritabanı Id ile Mağza Fiyat Araması
+    *
+    *
+    *  @param int mağza Fiayt Id
+    *  @return array|null mağza Fiyat
+    *
+    *  @version Master -- BetaTest
+    *  @author Sercan güngör
+    */
+    public function find($productId){
+      return pazaryeri_fiyat::find($productId);
+    }
+
+    /**
     *
     * Veritabanı Like Araması
     *

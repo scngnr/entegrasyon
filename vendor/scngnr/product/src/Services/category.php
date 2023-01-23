@@ -27,6 +27,20 @@ Class category {
   }
 
   /**
+  * Veritabanı Id ile Mağza Araması
+  *
+  *
+  *  @param int category Id
+  *  @return array|null category
+  *
+  *  @version Master -- BetaTest
+  *  @author Sercan güngör
+  */
+  public function find($productId){
+    return Kategori::find($productId);
+  }
+
+  /**
   * İletilen Kategori Adında
   * -Eklenmesi
   * - çıkarılması gereken işlemler var ise yapılır.

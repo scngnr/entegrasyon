@@ -28,6 +28,20 @@ Class Product {
     }
 
     /**
+    * Veritabanı Id ile Product Araması
+    *
+    *
+    *  @param int productId
+    *  @return array|null product
+    *
+    *  @version Master -- BetaTest
+    *  @author Sercan güngör
+    */
+    public function find($productId){
+      return en_product::find($productId);
+    }
+
+    /**
     * Veritabanı Like Araması
     *
     *

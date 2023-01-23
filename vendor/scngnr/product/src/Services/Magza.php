@@ -21,6 +21,20 @@ Class Magza {
     }
 
     /**
+    * Veritabanı Id ile Mağza Araması
+    *
+    *
+    *  @param int mağza Id
+    *  @return array|null product
+    *
+    *  @version Master -- BetaTest
+    *  @author Sercan güngör
+    */
+    public function find($productId){
+      return pazaryeri_info::find($productId);
+    }
+
+    /**
     *
     * Veritabanı Like Araması
     *
