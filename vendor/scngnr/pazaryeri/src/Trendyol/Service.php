@@ -3,7 +3,7 @@
 namespace Scngnr\Trendyol;
 use Scngnr\Trendyol\Helper\Gateway;
 
-class Trendyol extends Gateway
+class Service extends Gateway
 {
 
   /**
