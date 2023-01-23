@@ -16,7 +16,7 @@ Class Gateway {
   public $apiSecret;
 
   protected $allServices = array(
-    'catolog' => 'catolog',
+    'catalog' => 'catalog',
     'listing' => 'listing',
     'order' => 'order',
     'claim' => 'claim',
