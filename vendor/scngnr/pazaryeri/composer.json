@@ -1,0 +1,16 @@
+{
+    "name": "scngnr/pazaryeri",
+    "description": "Pazaryeri Siniflari, Ürün Ekleme Ve Günlleme islerini yürütecek sinif",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Scngnr\\Pazaryeri\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sercan güngör"
+        }
+    ],
+    "require": {}
+}
