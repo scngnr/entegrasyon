@@ -6,6 +6,7 @@ use Scngnr\Hepsiburada\exception;
 Class Gateway {
 
   /**
+  *
   *@description
   *
   *Binance apiKey and apiSecret
