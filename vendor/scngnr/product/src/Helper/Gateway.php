@@ -1,7 +1,7 @@
 <?php
 
 namespace Scngnr\Product\Helper;
-use Scngnr\Productxception;
+use Scngnr\Product\exception;
 
 Class Gateway {
 

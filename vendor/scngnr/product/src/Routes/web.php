@@ -7,9 +7,7 @@ use App\Imports\UsersImport;
 use Illuminate\Http\Request;
 use  Scngnr\Product\Models\N11CategoryService;
 
-
-
-Route::prefix('/product')->group( function(){                  //Hesap Ayarları
+Route::middleware(['web', 'auth'])->prefix('/product')->group( function(){                  //Hesap Ayarları
   Route::get('/',  App\Http\Livewire\productDashboard::class);
   Route::get('/category', Scngnr\Product\Http\Livewire\categoryDashboard::class);
 
@@ -39,6 +37,8 @@ Route::prefix('/product')->group( function(){                  //Hesap Ayarları
 
 
 });
+
+
 
 
 
