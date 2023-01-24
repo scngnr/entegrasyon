@@ -20,7 +20,8 @@ Class Gateway {
     'product'     => 'product',
     'varyation'   => 'varyation',
     'magza'       => 'magza',
-    'magzaPrice'  => 'magzaPrice'
+    'magzaPrice'  => 'magzaPrice',
+    'match'       => 'match'
   );
 
   /**
