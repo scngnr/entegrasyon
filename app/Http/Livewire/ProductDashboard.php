@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 use Scngnr\Product\Product;
-use Scngnr\Pazaryeri\Wordpress\Service;
+use Scngnr\Pazaryeri\Wordpress\Controller\ProductController;
 
 class productDashboard extends Component
 {
@@ -46,6 +46,13 @@ class productDashboard extends Component
        }
      }
 
+     public function gonder($pazaryeri, $productId,$magzaId=2){
+
+       switch ($pazaryeri) {
+         case 'woocommerce': $cl = new \Scngnr\Pazaryeri\Wordpress\Controllers\ProductController(); $cl->statu($magzaId, $productId);  break;
+         case 'n11':  break;
+       }
+     }
 
     public function render()
     {

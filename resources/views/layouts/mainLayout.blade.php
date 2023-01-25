@@ -7,12 +7,10 @@
 		<meta name="description" content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
 		<meta name="keywords" content="Metronic, bootstrap, bootstrap 5, Angular, VueJs, React, Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta property="og:locale" content="en_US" />
+		<meta property="og:locale" content="tr_TR" />
 		<meta property="og:type" content="article" />
 		<meta property="og:title" content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular &amp; Laravel Admin Dashboard Theme" />
-		<meta property="og:url" content="https://keenthemes.com/metronic" />
-		<meta property="og:site_name" content="Keenthemes | Metronic" />
-		<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
+
 		<link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico')}}" />
 		<!--begin::Fonts-->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -49,6 +47,8 @@
 					<!--end::Brand-->
 					@include('layouts.menu')
 					@include('view::javascripts.js')
+					@include('sweetalert::alert')
+
 					<!--begin::Footer-->
 					<div class="aside-footer flex-column-auto px-9" id="kt_aside_footer">
 						<!--begin::User panel-->
@@ -251,7 +251,32 @@
 					<div id="kt_header" class="header">
 						<!--begin::Container-->
 						<div class="container d-flex flex-stack flex-wrap gap-2" id="kt_header_container">
-
+							<!--begin::Header-->
+							<div id="kt_header" class="header">
+								<!--begin::Container-->
+								<div class="container d-flex flex-stack flex-wrap gap-2" id="kt_header_container">
+									<!--begin::Page title-->
+									<div class="page-title d-flex flex-column align-items-start justify-content-center flex-wrap me-lg-2 pb-5 pb-lg-0" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', lg: '#kt_header_container'}">
+										<!--begin::Heading-->
+										<h1 class="d-flex flex-column text-dark fw-bolder my-0 fs-1">Wizard Horizontal</h1>
+										<!--end::Heading-->
+										<!--begin::Breadcrumb-->
+										<ul class="breadcrumb breadcrumb-dot fw-bold fs-base my-1">
+											<li class="breadcrumb-item text-muted">
+												<a href="../../demo3/dist/index.html" class="text-muted">Home</a>
+											</li>
+											<li class="breadcrumb-item text-muted">Crafted</li>
+											<li class="breadcrumb-item text-muted">Utilities</li>
+											<li class="breadcrumb-item text-muted">Wizards</li>
+											<li class="breadcrumb-item text-dark">Horizontal</li>
+										</ul>
+										<!--end::Breadcrumb-->
+									</div>
+									<!--end::Page title=-->
+								</div>
+								<!--end::Container-->
+							</div>
+							<!--end::Header-->
 							<!--begin::Wrapper-->
 							<div class="d-flex d-lg-none align-items-center ms-n2 me-2">
 								<!--begin::Aside mobile toggle-->
@@ -1101,8 +1126,6 @@
 		<script src="{{asset('assets/js/scripts.bundle.js')}}"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Page Vendors Javascript(used by this page)-->
-		<script src="{{asset('assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
-		<script src="{{asset('assets/js/custom/apps/ecommerce/catalog/products.js')}}"></script>
 		<script src="{{asset('assets/plugins/custom/vis-timeline/vis-timeline.bundle.js')}}"></script>
 		<!--end::Page Vendors Javascript-->
 		<!--begin::Page Custom Javascript(used by this page)-->
@@ -1115,7 +1138,6 @@
 
 		<script src="{{asset('assets/src/js/layout/app.js')}}"></script>
 		<script src="{{asset('assets/js/custom/widgets.js')}}"></script>
-		<script src="{{asset('assets/js/custom/apps/chat/chat.js')}}"></script>
 		<script src="{{asset('assets/js/custom/utilities/modals/users-search.js')}}"></script>
 		<script src="{{asset('assets/plugins/custom/prismjs/prismjs.bundle.js')}}"></script>
 		<script src="{{asset('assets/js/custom/utilities/modals/new-target.js')}}"></script>
@@ -1125,6 +1147,7 @@
 
 		<!-- ICOn -->
 		<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+
 
 		<!--end::Page Vendors Javascript-->
     @livewireScripts

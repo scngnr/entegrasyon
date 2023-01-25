@@ -2,11 +2,30 @@
 
 namespace Scngnr\Pazaryeri\Wordpress\Services;
 
-use Scngnr\Pazaryeri\Wordpress\exception;
+use Scngnr\Pazaryeri\Wordpress\Helper\Exception;
 use Scngnr\Pazaryeri\Wordpress\Helper\Request;
 
-Class Claim extends Request{
+Class product extends Request{
 
+  public $apikey; 
+  public $apiSecret;;
+  public $apiUrl = "/product";
+
+        public function setApiKey($key){
+          $this->apikey = $key;
+        }
+
+        /**
+        *
+        *
+        *   @version Master -- BetaTest
+        *   @author Sercan Güngör
+        */
+
+
+        public function setApiSecret($secret){
+          $this->apiSecret = $secret;
+        }
       /**
       *
       *
@@ -28,13 +47,14 @@ Class Claim extends Request{
     *  @author Sercan güngör
     */
 
-    public function create($name, $price, $desc, $shDesc, $stock, $manageStock = TRUE, $category = array(), $images = array())
+    public function create($name, $price, $desc, $shDesc="", $stock, $manageStock = TRUE, $category = array(), $images = array())
     {
+
       $data = [
           'name' => $name,
           'type' => 'simple',
           'regular_price' => $price,
-          'description' => $dsc,
+          'description' => $desc,
           'short_description' => $shDesc,
           'stock_quantity' => $stock,
           'manage_stock' => $manageStock,
@@ -42,7 +62,7 @@ Class Claim extends Request{
           'images' => $images,
       ];
 
-      $this->getResponse();
+      $this->getResponse($this->magzaUrl, $this->apikey, $this->apikSecret, 'POST', $this->apiUrl , $data);
       //Wordpress Request Methoduna İstek atılarak Ürün oluşturulması sağlanacak
     }
 

@@ -6,6 +6,7 @@ use Scngnr\Pazaryeri\Wordpress\Helper\Gateway;
 class Service extends Gateway
 {
 
+
   /**
   *
   *
@@ -13,7 +14,19 @@ class Service extends Gateway
   *   @author Sercan Güngör
   */
 
-  public function index(){
+  public function setApiKey($key){
+    $this->apikey = $key;
+  }
 
+  /**
+  *
+  *
+  *   @version Master -- BetaTest
+  *   @author Sercan Güngör
+  */
+
+
+  public function setApiSecret($secret){
+    $this->apiSecret = $secret;
   }
 }

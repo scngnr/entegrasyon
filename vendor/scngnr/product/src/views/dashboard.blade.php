@@ -1,5 +1,6 @@
 
 <div >
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   {{print_r($selectedCheckBox)}}
   <div class="content d-flex flex-column flex-column-fluid" >
@@ -149,12 +150,12 @@
                       <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-200px py-4" data-kt-menu="true">
                         <!--begin::Menu item-->
                         <div class="menu-item px-3">
-                          <a type="button" class="menu-link px-3"  wire:click="WooCommerce({{$product->Id}})" > WooCommerce Ekle/Güncelle </a>
+                          <a type="button" class="menu-link px-3" wire:click="gonder('woocommerce', {{$product->id}})" > WooCommerce Gönder </a>
                         </div>
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-3">
-                          <a type="button" class="menu-link px-3" onclick="Livewire.emit('openModal', 'product.dashboard.modal.product-category', {{ json_encode(["productId" => $product->id]) }})"  {{-- data-bs-toggle="modal" data-bs-target="#kt_modal_create_account" onclick="tekilUrunChange('{{$product->id}}')" --}}>Kategori Eşleştir</a>
+                          <a type="button" class="menu-link px-3" href="/product/category/eslestir/{{$product->id}}">Kategori Eşleştir</a>
                         </div>
                         <!--end::Menu item-->
                         <!--begin::Menu item-->

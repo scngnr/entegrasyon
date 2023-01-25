@@ -274,4 +274,6 @@
       <!--end::Stepper-->
     </div>
     <!--end::Modal body-->
-  </div></div>
+  </div>
+
+</div>

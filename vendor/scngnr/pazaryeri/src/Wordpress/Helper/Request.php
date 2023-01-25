@@ -3,7 +3,6 @@
 namespace Scngnr\Pazaryeri\Wordpress\Helper;
 
 use Carbon\Carbon;
-use GuzzleHttp\Client;
 use Automattic\WooCommerce\Client;
 
 Class Request {

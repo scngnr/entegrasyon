@@ -16,12 +16,13 @@ Class Gateway {
   public $apiSecret;
 
   protected $allServices = array(
-    'category'    => 'category',
-    'product'     => 'product',
-    'varyation'   => 'varyation',
-    'magza'       => 'magza',
-    'magzaPrice'  => 'magzaPrice',
-    'match'       => 'match'
+    'category'            => 'category',
+    'product'             => 'product',
+    'varyation'           => 'varyation',
+    'magza'               => 'magza',
+    'magzaPrice'          => 'magzaPrice',
+    'match'               => 'matches',
+    'pazaryeriMatchInfo'  => 'pazaryeriMatchInfo',
   );
 
   /**

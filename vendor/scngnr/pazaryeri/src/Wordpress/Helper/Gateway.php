@@ -3,6 +3,8 @@
 namespace Scngnr\Pazaryeri\Wordpress\Helper;
 use Scngnr\Pazaryeri\Wordpress\exception;
 
+use Scngnr\Pazaryeri\Wordpress\Services;
+
 Class Gateway {
 
   /**
@@ -21,7 +23,7 @@ Class Gateway {
     'Order '                => 'Order',
     'Ordernote'             => 'Ordernote',
     'Refunds'               => 'Refunds',
-    'Product'               => 'Product',
+    'product'               => 'product',
     'Productvariations'     => 'Productvariations',
     'Productattribute'      => 'Productattribute',
     'Productattributeterm'  => 'Productattributeterm',

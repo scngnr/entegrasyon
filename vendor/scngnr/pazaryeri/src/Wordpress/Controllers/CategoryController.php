@@ -4,6 +4,7 @@ namespace Scngnr\Pazaryeri\Wordpress\Controllers;
 
 use Automattic\WooCommerce\Client;
 use Illuminate\Routing\Controller;
+use Scngnr\Pazaryeri\Wordpress\Service;
 
 class CategoryController extends Controller
 {

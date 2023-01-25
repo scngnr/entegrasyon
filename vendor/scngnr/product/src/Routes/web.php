@@ -13,6 +13,8 @@ Route::middleware(['web', 'auth'])->prefix('/product')->group( function(){      
 
   Route::get('/edit/{id}', Scngnr\Product\Http\Livewire\editProduct::class);
 
+  Route::get('/category/eslestir/{id}', App\Http\Livewire\ProductKategoriEslestir::class);
+
   Route::post('/price/{id}', [Scngnr\Product\Http\Controllers\PriceController::class, 'index']);
   Route::get('check/status/{id}/{status}', [Scngnr\Product\Http\Controllers\PriceController::class, 'checkStatus']);
   Route::get('check/pazaryeri/{pazaryeri}', [Scngnr\Product\Http\Controllers\PriceController::class, 'pazaryeri']);
