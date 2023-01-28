@@ -13,20 +13,9 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
-
-     protected $commands = [
-       Commands\ordersCheck::class,
-     ];
-
     protected function schedule(Schedule $schedule)
     {
-      // $schedule->command('order:check')->everyMinute();
-      // $schedule->command('xml:productCheck')->hourly();
-      // $schedule->command('trendyol:productUpdate')->hourly();
-      // $schedule->command('hepsiBurada:eslesenUrunGuncelle')->hourly();
-
-
-
+        // $schedule->command('inspire')->hourly();
     }
 
     /**

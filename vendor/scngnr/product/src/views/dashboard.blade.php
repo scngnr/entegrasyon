@@ -28,49 +28,68 @@
           </div>
           <!--end::Card title-->
           <!--begin::Card toolbar-->
-          <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
-            <a href="" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-              <i class="bi bi-three-dots fs-3"></i>
-            </a>
-              <!--begin::Menu-->
-              <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-200px py-4" data-kt-menu="true">
-                <!--begin::Menu item-->
-                <div class="menu-item px-3">
-                  <a type="button" class="menu-link px-3" wire:click="topluGonder('woocommerce', 2)">WooCommerce Ürün Gönder</a>
-                </div>
-                <!--end::Menu item-->
-                <!--begin::Menu item-->
-                <div class="menu-item px-3">
-                  <a type="button" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#urunEslestirModal">Seçili Ürünleri Eşleştir</a>
-                </div>
-                <!--end::Menu item-->
-                <!--begin::Menu item-->
-                <div class="menu-item px-3">
-                  <a type="button" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_add_customer" >Kategori Eşleştir</a>
-                </div>
-                <!--end::Menu item-->
-                <!--begin::Menu item-->
-                <div class="menu-item px-3">
-                  <a type="button" class="menu-link px-3" onclick="Livewire.emit('openModal', 'product.dashboard.modal.product-seller-account-add', {{ json_encode(["productId" => $selectedCheckBox]) }})"  >Pazaryeri Fiyat Ekle</a>
-                </div>
-                <!--end::Menu item-->
-                <!--begin::Menu item-->
-                <div class="menu-item px-3">
-                  <a type="button" class="menu-link px-3" onclick="Livewire.emit('openModal', 'product.dashboard.modal.product-statu', {{ json_encode(["productId" => $selectedCheckBox]) }})" >Ürün Durum Değiştir</a>
+          <div class="card-toolbar row">
+            <div class="col-md-3">
+              <a href="" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                <i class="bi bi-three-dots fs-3"></i>
+              </a>
+                <!--begin::Menu-->
+                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-200px py-4" data-kt-menu="true">
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a type="button" class="menu-link px-3" wire:click="topluGonder('woocommerce', 2)">WooCommerce Ürün Gönder</a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a type="button" class="menu-link px-3" >Seçili Ürünleri Eşleştir</a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a type="button" class="menu-link px-3" href="/product/category/eslestir/{{json_encode($selectedCheckBox)}}" >Kategori Eşleştir</a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a type="button" class="menu-link px-3" onclick="Livewire.emit('openModal', 'product.dashboard.modal.product-seller-account-add', {{ json_encode(["productId" => $selectedCheckBox]) }})"  >Pazaryeri Fiyat Ekle</a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a type="button" class="menu-link px-3" onclick="Livewire.emit('openModal', 'product.dashboard.modal.product-statu', {{ json_encode(["productId" => $selectedCheckBox]) }})" >Ürün Durum Değiştir</a>
 
+                  </div>
+                  <!--end::Menu item-->
+                  <hr>
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="/xmlservice" class="menu-link px-3 m-auto" data-kt-ecommerce-product-filter="delete_row" disabled>Sil</a>
+                  </div>
+                  <!--end::Menu item-->
                 </div>
-                <!--end::Menu item-->
-                <hr>
-                <!--begin::Menu item-->
-                <div class="menu-item px-3">
-                  <a href="/xmlservice" class="menu-link px-3 m-auto" data-kt-ecommerce-product-filter="delete_row" disabled>Sil</a>
-                </div>
-                <!--end::Menu item-->
-              </div>
-              <!--end::Menu-->
+                <!--end::Menu-->
+            </div>
+            <div class="col-md-3">
+                <!--begin::Label-->
+                <div class="text-muted fs-7 me-2">Ürün Sayısı</div>
+                <!--end::Label-->
+              <!--begin::Select-->
+              <select wire:model="paginate" class="form-select form-select-transparent text-dark fs-7 lh-1 fw-bolder py-0 ps-3 w-auto" data-control="select2" data-hide-search="true" data-dropdown-css-class="w-150px"  >
+                <option></option>
+                <option value="25"  selected="selected" >25</option>
+                <option value="50">50</option>
+                <option value="75">75</option>
+                <option value="100">100</option>
+              </select>
+              <!--end::Select-->
+            </div>
+            <div class="col-md-3">
+
             <!--begin::Add product-->
             <a href="/product/add" class="btn btn-primary">Yeni Ürün Ekle</a>
             <!--end::Add product-->
+            </div>
           </div>
           <!--end::Card toolbar-->
         </div>
@@ -195,7 +214,7 @@
             </tbody>
           </table>
           <!--end::Table-->
-          {{$allProduct->links('pagination::bootstrap-4')}}
+          {{$allProduct->links()}}
         </div>
         <!--end::Card body-->
       </div>

@@ -11,11 +11,8 @@ class productDashboard extends Component
 {
   use WithPagination;
 
-    public $paginate =15, $selectedCheckBox= [], $allSelectCheckBox = 0, $searchProduct = '';
+    public $paginate = 25, $selectedCheckBox= [], $allSelectCheckBox = 0, $searchProduct = '';
     public $durum;
-    public function paginates ($deger){
-      $this->paginate = $deger;
-    }
 
     public function resetsPage(){
 
