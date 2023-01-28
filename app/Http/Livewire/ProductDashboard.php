@@ -3,16 +3,8 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use Scngnr\Product\Models\en_product as Urunler;
-use Scngnr\Product\Models\pazaryeri_fiyat;
-use App\Models\XmlService;
-use Livewire\WithPagination;
-use App\Models\N11CategoryService;
-use Scngnr\Xmlservice\Models\XmlKategori;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
-
 use Scngnr\Product\Product;
+use Livewire\WithPagination;
 use Scngnr\Pazaryeri\Wordpress\Controller\ProductController;
 
 class productDashboard extends Component
@@ -30,8 +22,8 @@ class productDashboard extends Component
           $this->resetPage();
      }
 
+     //Product Sayfasındaki Tüm ürünlerin checkbox larını işaretler
      public function allSelect(){
-
        $this->allSelectCheckBox++;
        $products = new Product;
        $allProduct =$products->product->likeSearch($this->searchProduct, $this->paginate);
@@ -46,16 +38,22 @@ class productDashboard extends Component
        }
      }
 
-     public function gonder($pazaryeri, $productId,$magzaId=2){
-
+     //WooCommerce Product Methodu ile Tekli Ürün YÜkleme
+     public function gonder($pazaryeri, $productId, $magzaId=2){
        switch ($pazaryeri) {
          case 'woocommerce': $cl = new \Scngnr\Pazaryeri\Wordpress\Controllers\ProductController(); $cl->statu($magzaId, $productId);  break;
          case 'n11':  break;
        }
      }
 
-    public function render()
-    {
+     //$this->gonder methodu ile çoklu Ürün Yükleme
+     public function topluGonder($pazaryeri,  $magzaId){
+       for ($i=0; $i < count($this->selectedCheckBox) ; $i++) {
+         $this->gonder($pazaryeri, $this->selectedCheckBox[$i], $magzaId);
+       }
+     }
+
+    public function render(){
         //Product Sınıfını Çağır
         $products = new Product;
 
@@ -67,19 +65,8 @@ class productDashboard extends Component
           $allProduct =$products->product->index(true, $this->paginate);
         }
 
-
-
-        $parentkategoriler = XmlKategori::where('parentCategory', NULL)->get();
-        $kategoriler = XmlKategori::all();
-
-        // $urun= Urunler::find(1970);
-        // $urun = explode('>', $urun->katagorisi);
-        // $urunc = count($urun);
-        // dd($urun[$urunc-1]);
         return view('view::dashboard', [
-          'allProduct' => $allProduct,
-          'parentkategoriler' => $parentkategoriler,
-          'kategoriler' => $kategoriler,
-          'pF' => pazaryeri_fiyat::all()])->layout('layouts.mainLayout');
+          'allProduct' => $allProduct
+          ])->layout('layouts.mainLayout');
     }
   }

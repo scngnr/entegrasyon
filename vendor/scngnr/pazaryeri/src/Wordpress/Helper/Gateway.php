@@ -1,9 +1,10 @@
 <?php
 
 namespace Scngnr\Pazaryeri\Wordpress\Helper;
-use Scngnr\Pazaryeri\Wordpress\exception;
 
 use Scngnr\Pazaryeri\Wordpress\Services;
+use Scngnr\Pazaryeri\Wordpress\exception;
+use Scngnr\Pazaryeri\Wordpress\Helper\Request;
 
 Class Gateway {
 
@@ -14,8 +15,12 @@ Class Gateway {
   *
   *
   */
-  public $apiKey;
-  public $apiSecret;
+  protected $apiKey, $apiSecret;
+
+  public function __construct()
+  {
+
+  }
 
   protected $allServices = array(
     'Coupon'                => 'Coupon',
@@ -56,7 +61,6 @@ Class Gateway {
     $service = $this->allServices[$names];
 
     if (!isset($this->allServices[$names])) {
-      dd($service);
       throw new exception("Geçersiz Servis!");
     }
 
@@ -80,7 +84,7 @@ Class Gateway {
   protected function createServiceInstance($serviceName)
   {
     //dd($serviceName);
-    $serviceName = "Scngnr\Pazaryeri\Wordpress\Services\\" .  $serviceName;
+    $serviceName = "Scngnr\Pazaryeri\\Wordpress\Services\\" .  $serviceName;
     if (!class_exists($serviceName)) {
       throw new exception("Geçersiz Dosya Yolu!");
     }

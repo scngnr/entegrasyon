@@ -48,6 +48,7 @@
                     style="
                     max-width:80% !important;
                     max-height:70% !important;
+                    "
             >
                 @forelse($components as $id => $component)
                     <div x-show.immediate="activeComponent == '{{ $id }}'" x-ref="{{ $id }}" wire:key="{{ $id }}">

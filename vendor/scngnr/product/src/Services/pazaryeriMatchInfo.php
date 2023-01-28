@@ -63,6 +63,33 @@ Class pazaryeriMatchInfo {
                               ->get();
     }
 
+    /**
+    *
+    * Veritabanı where - First Araması
+    *
+    *
+    *  @param string productId
+    *  @param string pazaryeri
+    *  @param string magaza
+    *  @param string fiyat
+    *  @param string fiyatKaynak
+    *  @param string indirimliFiyat
+    *  @param string indirimliFiyatBaslangic
+    *  @param string indirimliFiyatBitis
+    *  @param string status
+    *
+    *  @version Master -- BetaTest
+    *  @author Sercan güngör
+    */
+
+    public function productMatchSearch ($productId, $magzaId){
+
+      return pazaryeri_product_info::where('productId', 'LIKE', '%' . $productId . '%')
+                              ->where('magzaId', 'LIKE', '%' . $magzaId . '%')
+                              ->first();
+
+    }
+
   /**
   *
   * Kayıtlı Mağazaya Yeni Ürün Fiyatı Ekle
@@ -82,26 +109,15 @@ Class pazaryeriMatchInfo {
   *  @author Sercan güngör
   */
 
-  public function create ($productId, $pazaryeri, $magza , $fiyatKaynak ,  $islem, $formul){
+  public function create ($productId, $magzaId, $pazaryeriProductId = "" , $categoryId = "" ,  $categoryAttribue = "" , $otherInfo= "" ){
 
     $productFiyat = new pazaryeri_product_info;
-    $productFiyat->productId                =  $productId;
-    $productFiyat->pazaryeri                =  $pazaryeri;
-    $productFiyat->magaza                   =  $magza;
-
-    //Fiyat Belirleme
-    if($fiyatKaynak == 'BF'){
-        $product = new \Scngnr\Product\Product;
-       $product = $product->product->find($productId);
-       switch ($islem) {
-         case 'topla': $productFiyat->fiyat = $product->price + $formul; break;
-         case 'cikar': $productFiyat->fiyat = $product->price - $formul; break;
-         case 'carp':  $productFiyat->fiyat = $product->price  * $formul; break;
-         case 'bol':   $productFiyat->fiyat = $product->price  / $formul; break;
-       }
-    }
-
-    $productFiyat->fiyatKaynak              =  $fiyatKaynak;
+    $productFiyat->productId            =  $productId;
+    $productFiyat->magzaId              =  $magzaId;
+    $productFiyat->pazaryeriProductId   =  $pazaryeriProductId;
+    $productFiyat->categoryId           =  $categoryId;
+    $productFiyat->categoryAttribue     =  $categoryAttribue;
+    $productFiyat->otherInfo            =  $otherInfo;
     $productFiyat->save();
   }
 

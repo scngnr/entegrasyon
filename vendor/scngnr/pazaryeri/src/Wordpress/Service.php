@@ -6,27 +6,19 @@ use Scngnr\Pazaryeri\Wordpress\Helper\Gateway;
 class Service extends Gateway
 {
 
-
-  /**
-  *
-  *
-  *   @version Master -- BetaTest
-  *   @author Sercan Güngör
-  */
-
   public function setApiKey($key){
-    $this->apikey = $key;
+    $this->apiKey = $key;
   }
 
-  /**
-  *
-  *
-  *   @version Master -- BetaTest
-  *   @author Sercan Güngör
-  */
+  public function setApiSecret($key){
+    $this->apiSecret = $key;
+  }
 
+  public function setApiKeyValue(){
+    return  $this->apiKey;
+  }
 
-  public function setApiSecret($secret){
-    $this->apiSecret = $secret;
+  public function setApiSecretValue(){
+    return  $this->apiSecret;
   }
 }

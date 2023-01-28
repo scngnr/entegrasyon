@@ -21,15 +21,20 @@ Class Request {
         $apiUrl,
         $data ){
 
-        $woocommerce = new Client(
-            $magzaUrl,
-            $magzaApiKey,
-            $magzaSecretKey,
-            [
-              'version' => 'wc/v3',
-            ]
-        );
+        // $woocommerce = new Client(
+        //     $magzaUrl,
+        //     $magzaApiKey,
+        //     $magzaSecretKey,
+        //     [
+        //       'version' => 'wc/v3',
+        //     ]
+        // );
+        $woocommerce = new Client( "$magzaUrl", $magzaApiKey, "$magzaSecretKey",
+        [
+          'version' => 'wc/v3',
+        ]
+      );
         $response = $woocommerce->$method($apiUrl, $data);
-        dd($response);
+        return $response;
       }
 }

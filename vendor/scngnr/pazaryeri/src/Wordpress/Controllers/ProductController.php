@@ -5,6 +5,7 @@ namespace Scngnr\Pazaryeri\Wordpress\Controllers;
 use Automattic\WooCommerce\Client;
 use Illuminate\Routing\Controller;
 use Scngnr\Pazaryeri\Wordpress\Service;
+use Scngnr\Pazaryeri\Wordpress\Helper\Exception;
 use Scngnr\Product\Product;
 
 class ProductController extends Controller
@@ -35,17 +36,27 @@ class ProductController extends Controller
 
     public function statu($magzaId, $productId)
     {
-      $wordpress = new Service;                                                   //  Wordpress Sınıfımız
-       $product = new Product;                                                  //  Product Sınıfımız
+      //  Wordpress Sınıfımız
+      $wordpress = new Service;
+      //  Product Sınıfımız
+       $product = new Product;
        //uvKon Ürün veritabanında kayıt lı mı?
-       $uVKON = $product->pazaryeriMatchInfo->find($productId);
-       if($uVKON){
-         $wordpress->product->update();
-       }else {
+       $uVKON = $product->pazaryeriMatchInfo->productMatchSearch($productId, $magzaId);
+         //Product Sınıfı Product Servisinden Ürün Bilgilerini al
          $productInfo = $product->product->find($productId);
-         $wordpress->product->setApiKey(1);
-         $wordpress->product->setApiSecret(2);
-         $wpResponse = $wordpress->product->create($productInfo->name, $productInfo->price, $productInfo->description, '', $productInfo->stock, true, array([ 'id' => 9 ]));
+       //Kayıtlı
+       if($uVKON){
+         $wordpress->product->update($magzaId, $uVKON->pazaryeriProductId);
+         //Kayıtlı Değill
+       }else {
+         //Wordpress Sınıfını kullanarak Ürün oluşturulması
+         $wpResponse = $wordpress->product->create($magzaId, $productInfo->name, $productInfo->price, $productInfo->description, '', $productInfo->stock, $productInfo->stockCode, true, array([ 'id' => 9 ]));
+         //Wordpress Sınııfndan  Dönen response bilgilerini PAzaryeri ile eşleştirilen ürün veritababnına kayıt et
+         $producMatchInfo = $product->pazaryeriMatchInfo->create($productId, $magzaId, $wpResponse->id);
+         //Pazaryerine eklenen Ürün İçin Veri Tabanında Kayıtlı Fiyat Yok ise Default Ürün Fiyatı Ekle
+         if(! $product->magzaPrice->productMatchSearch($productId)){
+           $product->magzaPrice->create($productId, 'woocommerce', $magzaId, 'SF' , '', '');
+         }
        }
     }
 
