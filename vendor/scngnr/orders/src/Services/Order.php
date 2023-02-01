@@ -61,19 +61,6 @@ Class Order {
     * Veritabanına Yeni Ürün Ekle
     * @param bool   Status             Ürün Durumu
     * @param string name               Ürün Adı (*)
-    * @param int    price              Ürün fiyatı (*)
-    * @param int    regularPrice       Üstü Çizili Fiyat
-    * @param int    category           Ürün Kategorisi
-    * @param int    tax                Ürün vergi Dilimi
-    * @param string currency           Ürün parama birimi
-    * @param string description        Ürün Açıklaması
-    * @param string stockCode          Ürün Stok Kodu
-    * @param int    gtin               Ürün Ulusan barkod Numarası
-    * @param string pictures (1 - 5 )  Ürün Resim Alanları
-    * @param int    deci               Ürün Kargo desi değeri
-    * @param int    stock              Ürün Stok Adeti
-    * @param bool   varyation          Ürün Varyasyonu Var mı
-    * @param string source             Ürün Kaynağı ( Xml - Exel - Manuel vs.)
     * @param
     * @version Master -- BetaTest
     * @author Sercan güngör

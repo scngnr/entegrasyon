@@ -3,6 +3,7 @@
 namespace App\Console\Commands\Fatura\Parasut;
 
 use Illuminate\Console\Command;
+use Scngnr\Product\Product;
 
 class productUpdate extends Command
 {
@@ -37,9 +38,14 @@ class productUpdate extends Command
      */
     public function handle()
     {
-      $controller = new \Scngnr\Parasut\Http\Controllers\ProductController();
-      $controller->create(1);
+      $productClass = new Product;
+      $products = $productClass->product->index();
 
+      for ($i=0; $i < count($products); $i++) {
 
+        $controller = new \Scngnr\Parasut\Http\Controllers\ProductController();
+        $controller->statu($products[$i]->id);
+        sleep(1.5);
+      }
     }
 }

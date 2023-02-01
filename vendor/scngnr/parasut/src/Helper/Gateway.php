@@ -1,7 +1,8 @@
 <?php
 
 namespace Scngnr\Parasut\Helper;
-use Scngnr\Mdent\Parasut\Exception;
+
+use Scngnr\Parasut\Exception;
 
 Class Gateway {
 
@@ -36,6 +37,10 @@ Class Gateway {
     'taxes'             => 'taxes',
     'warehouses'        => 'warehouses',
 
+    //Veritabanı Tarafı
+    'productMatch'      => 'productMatch',
+    'categoryMatch'     => 'categoryMatch',
+    'customerMatch'     => 'customerMatch',
   );
 
   /**
@@ -76,7 +81,7 @@ Class Gateway {
     //dd($serviceName);
     $serviceName = "Scngnr\Parasut\Services\\" .  $serviceName;
     if (!class_exists($serviceName)) {
-      throw new Bnexception("Geçersiz Dosya Yolu!");
+      throw new Exception("Geçersiz Dosya Yolu!");
     }
     return new $serviceName($this->apiKey, $this->apiSecret);
   }

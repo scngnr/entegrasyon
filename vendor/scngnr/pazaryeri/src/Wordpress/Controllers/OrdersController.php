@@ -104,7 +104,7 @@ class OrdersController extends Controller
           for ($j=0; $j < count($wordpressOrderList[$i]->line_items) ; $j++) {
             if($orderDetailtem){
 
-              $orderClass->orderDetailItem->update($orderDetail->id, $order->id, $wordpressOrderList[$i]->line_items[$j]->product_id, $wordpressOrderList[$i]->line_items[$j]->quantity);
+              $orderClass->orderDetailItem->update($orderDetailtem->id, $order->id, $wordpressOrderList[$i]->line_items[$j]->product_id, $wordpressOrderList[$i]->line_items[$j]->quantity);
             }else {
 
               $orderClass->orderDetailItem->create($order->id, $wordpressOrderList[$i]->line_items[$j]->product_id, $wordpressOrderList[$i]->line_items[$j]->quantity);
@@ -122,8 +122,43 @@ class OrdersController extends Controller
     *  @author Sercan güngör
     */
 
-    public function delete()
-    {
+    public function orderCustomer($magzaId){
 
+      $wordpressClass = new Service;
+      $orderClass = new OrderService;
+
+      $wordpressOrderList = $wordpressClass->Order->index($magzaId);
+
+      for ($i=0; $i < count($wordpressOrderList); $i++) {
+
+        $orderCustomer = $orderClass->orderCustomer->findOrderCustomer($wordpressOrderList[$i]->billing->email);
+        if($orderCustomer){
+          $orderClass->orderCustomer->update($orderCustomer->id, $wordpressOrderList[$i]->billing->first_name,
+                                              $wordpressOrderList[$i]->billing->last_name, $wordpressOrderList[$i]->billing->company,
+                                              $wordpressOrderList[$i]->billing->address_1, $wordpressOrderList[$i]->billing->address_2,
+                                              $wordpressOrderList[$i]->billing->city, $wordpressOrderList[$i]->billing->state,
+                                              $wordpressOrderList[$i]->billing->postcode, $wordpressOrderList[$i]->billing->country,
+                                              $wordpressOrderList[$i]->billing->phone, $wordpressOrderList[$i]->billing->email);
+        }else {
+          $orderClass->orderCustomer->create( $wordpressOrderList[$i]->billing->first_name,
+                                              $wordpressOrderList[$i]->billing->last_name, $wordpressOrderList[$i]->billing->company,
+                                              $wordpressOrderList[$i]->billing->address_1, $wordpressOrderList[$i]->billing->address_2,
+                                              $wordpressOrderList[$i]->billing->city, $wordpressOrderList[$i]->billing->state,
+                                              $wordpressOrderList[$i]->billing->postcode, $wordpressOrderList[$i]->billing->country,
+                                              $wordpressOrderList[$i]->billing->phone, $wordpressOrderList[$i]->billing->email);
+        }
+      }
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }

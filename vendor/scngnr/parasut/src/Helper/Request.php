@@ -22,8 +22,7 @@ Class Request {
             [
               'Accept' => 'application/json',
               'Authorization' => 'Bearer '.$access_token,
-            ])->$method($apiUrl, $data);
-            dd($response->json());
+            ])->$method($apiUrl, $data); 
             return $response->json();
       }
 }

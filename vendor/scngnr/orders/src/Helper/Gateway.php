@@ -18,6 +18,7 @@ Class Gateway {
   protected $allServices = array(
     'order'           => 'order',
     'orderDetail'     => 'orderDetail',
+    'orderCustomer'   => 'orderCustomer',
     'orderDetailItem' => 'orderDetailItem',
   );
 

@@ -44,5 +44,7 @@ class OrderCommand extends Command
         $controller->orderDetail(1);
 
         $controller->orderDetailItem(1);
+
+        $controller->orderCustomer(1);
     }
 }

@@ -36,8 +36,8 @@ Class orderDetail {
     *  @version Master -- BetaTest
     *  @author Sercan güngör
     */
-    public function find($productId){
-      return en_orders_detail::find($productId);
+    public function find($id){
+      return en_orders_detail::find($id);
     }
 
     /**
@@ -103,7 +103,7 @@ Class orderDetail {
     */
 
     public function update($id, $orderId, $billingAddress, $shippingAddress, $wp_customerId){
-      
+
       $order =  en_orders_detail::find($orderId);
       $order->orderId = $orderId;
       $order->billingAddress   = $billingAddress;

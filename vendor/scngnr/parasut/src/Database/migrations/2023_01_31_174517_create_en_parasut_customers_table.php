@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('en_parasut_customers', function (Blueprint $table) {
             $table->id();
+            $table->string('customerId');
+            $table->string('parasutCustomerId');
             $table->timestamps();
         });
     }
