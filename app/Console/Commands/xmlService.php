@@ -37,6 +37,8 @@ class xmlService extends Command
      */
     public function handle()
     {
-        $controller = new \App\Http\Controllers\XmlServices\XmlController(); $controller->xmlProductCheck();
+        $controller = new \Scngnr\Xmlservice\Http\Controllers\XmlAddProduct();
+        $controller->xmlTarama();
+        
     }
 }

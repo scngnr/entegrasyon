@@ -1,10 +1,10 @@
 <?php
 
-namespace Scngnr\Trendyol\Services;
+namespace Scngnr\Pazaryeri\Wordpress\Services;
 
-use Scngnr\Trendyol\Helper\exception;
+use Scngnr\Pazaryeri\Wordpress\Helper\{Exception , Request};
 
-Class Claim {
+Class Ordernote {
 
       /**
       *
@@ -18,6 +18,20 @@ Class Claim {
     {
 
     }
+
+
+    /**
+    *
+    *
+    *
+    *  @version Master -- BetaTest
+    *  @author Sercan güngör
+    */
+
+    public function retrieve()
+    {
+       print_r($woocommerce->get('customers/25'));
+     }
 
     /**
     *

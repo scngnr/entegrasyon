@@ -5,6 +5,7 @@ namespace Scngnr\Pazaryeri\Wordpress\Controllers;
 use Automattic\WooCommerce\Client;
 use Illuminate\Routing\Controller;
 use Scngnr\Pazaryeri\Wordpress\Service;
+use Scngnr\Product\Product;
 
 class CategoryController extends Controller
 {
@@ -32,9 +33,37 @@ class CategoryController extends Controller
     *  @author Sercan güngör
     */
 
-    public function statu()
+    public function statu($magzaId, $catId)
     {
+      //Wordpress Sınıfını Çağır
+      $wordpressClass = new Service;
+      //Product Sınıfını çağır
+      $productClass = new Product;
 
+      //Product Sınıfı ile $catId Yi Product Kategori Veritabanında Bul
+      $dbCategory = $productClass->category->find($catId);
+      //magzaID ve catId ile WooCommerce Veritabanı araması yap
+      $category = $wordpressClass->Productcategories->likeSearch($magzaId, $catId);
+
+      $parentCategoryId = 0;
+      //Eğer PArent Kategori Kontrol et varsa WooCommerce Kategori IDsini Bul ve güncelle
+      if ($dbCategory->parentCategory) {
+        //İlk Olarak Product Kategorinin Parent Kategorisi varmı Sorgula
+        $dbParentCategory = $productClass->category->find($dbCategory->parentCategory);
+        //Parent Kategorinin Wordpress Kategori Iddsini Bul
+        $findParentcategory = $wordpressClass->Productcategories->likeSearch($magzaId, $dbParentCategory->id);
+        //Değişkene Aktar
+        $parentCategoryId = $findParentcategory->pazaryeriCatId;
+      }
+
+      //kayıtlı ise güncelle
+      if ($category) {
+        $wordpressClass->Productcategories->update($category->pazaryeriCatId,  $magzaId, $dbCategory->categoryAdi , $parentCategoryId);
+      }else {
+        //kayıtlı değil ise oluştur
+        $categoryResponse = $wordpressClass->Productcategories->create($dbCategory->categoryAdi, $magzaId, $catId , $parentCategoryId);
+
+      }
     }
 
     /**

@@ -25,7 +25,7 @@ Class Gateway {
   protected $allServices = array(
     'Coupon'                => 'Coupon',
     'Customer '             => 'Customer',
-    'Order '                => 'Order',
+    'Order'                => 'Order',
     'Ordernote'             => 'Ordernote',
     'Refunds'               => 'Refunds',
     'product'               => 'product',

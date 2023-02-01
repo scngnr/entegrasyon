@@ -3,7 +3,7 @@
 namespace Scngnr\Parasut;
 use Scngnr\Parasut\Helper\Gateway;
 
-Class ParasutClient extends Gateway {
+Class Parasut extends Gateway {
 
   /**
 	 *

@@ -28,10 +28,10 @@ class ProductKategoriEslestir extends Component
      //Gelen Product ID değeri Array ise for döngüsüne al
      if (is_array($this->productId)) {
        for ($i=0; $i < count($this->productId) ; $i++) {
-           $product->match->create($this->productId[$i], $this->magzaId);
+           $product->matches->create($this->productId[$i], $this->magzaId);
        }
      }else {
-      $product->match->create($this->productId, $this->magzaId);
+      $product->matches->create($this->productId, $this->magzaId);
      }
      //SweetAlert İle Başarılı Mesajı içerisine Mağaza Bilgilerini Ekle
      Alert::success('KategoriEşleştirme Başarılı');

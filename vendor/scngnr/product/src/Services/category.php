@@ -36,9 +36,11 @@ Class category {
   *  @version Master -- BetaTest
   *  @author Sercan güngör
   */
-  public function find($productId){
-    return Kategori::find($productId);
+  public function find($id){
+    return Kategori::find($id);
   }
+
+
 
   /**
   * İletilen Kategori Adında

@@ -5,6 +5,7 @@ namespace Scngnr\Product\Services;
 use Scngnr\Product\Helper\exception;
 use Scngnr\Product\Models\en_product;
 use Scngnr\Product\Services\Category;
+use Scngnr\Xmlservice\Models\XmlKategori;
 
 Class Product {
 
@@ -61,6 +62,69 @@ Class Product {
                           ->paginate($paginateValue);
   }
 
+      /**
+      * Veritabanı Like Araması
+      *
+      *
+      *  @param bool $paginate --Default False
+      *  @param int $paginate   --Value
+      *  @version Master -- BetaTest
+      *  @author Sercan güngör
+      */
+
+    public function likeSearchWithCategory($searcValue, $category, $paginateValue = 25)
+    {
+
+      // if($searcValue){
+      //   return en_product::where('name', 'LIKE', '%' . $searcValue . '%')
+      //                         ->Where('category', $category)
+      //                         ->paginate($paginateValue);
+      // }else {
+      //   return en_product::where('category', $category)
+      //                         ->paginate($paginateValue);
+      // }
+
+      $findCat = XmlKategori::find($category);
+      //Gelen Kategori Bilgisi parent mi kontol et
+      if($findCat->parentCategory){
+        //Parent Kategori Değil
+        //Ürün Arama Değerini kontrol et
+        if($searcValue){
+          //Nll değil ve veritabanında searchvalue ile like araması yap
+          return en_product::where('name', 'LIKE', '%' . $searcValue . '%')
+                                ->Where('category', $category)
+                                ->paginate($paginateValue);
+        }else {
+          //searcValue null Sadece kategori Id aramsı yap
+          return en_product::where('category', $category)
+                                ->paginate($paginateValue);
+        }
+      }else {
+        //Parent Kategori Seçildi
+        //Sub Kategorileri Bul
+        $subCategory = XmlKategori::where('parentCategory', $findCat->id)->get();
+        $categories = array();
+        //For ile array sayısınma göre orWhere araması yapılacaktır. 1 kez query builerin olştrulması için eklendi
+        $firstCategory = true;
+        //SubKategori Sayısını Bul
+        for ($i=0; $i < count($subCategory); $i++) {
+          //ilk query Builderi oluştur.
+          //Sürekli yeniden oluşturulurse ek sorguları dahil edemeyiz.
+          if($firstCategory){
+            $categories = en_product::orWhere('category', $subCategory[$i]->id);
+            $firstCategory = false;
+          }
+          //Ek sorguları dahil et
+          $categories->orWhere('category', $subCategory[$i]->id);
+          //query Buildere arama değeri varsa dahil et
+          if($searcValue){
+            $categories->where('name', 'LIKE', '%' . $searcValue . '%');
+          }
+        }
+        //sorguyu çalıştır ve responsu geri çevir
+        return $categories->paginate($paginateValue);
+      }
+    }
 
     /**
     *

@@ -24,3 +24,8 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', App\Http\Livewire\Admin\dashboard::class)->name('dashboard');
 });
+
+Route::get('schedule/run', function(){
+
+   Artisan::call("schedule:run");
+});

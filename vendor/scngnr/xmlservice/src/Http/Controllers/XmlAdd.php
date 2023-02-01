@@ -44,7 +44,7 @@ class XmlAdd extends Controller
         for ($i=0; $i < count($xmlKey); $i++) {
           $XmlServices->xmlUrunAdet       =  count($xmlKey);
           $keyList = array_keys($xmlKey[$i]);
-          $xmlKeyList = array_merge($xmlKeyList, $keyList  );
+          $xmlKeyList = array_merge($xmlKeyList, $keyList);
           $xmlKeyList = (array_unique($xmlKeyList));
         }
     }

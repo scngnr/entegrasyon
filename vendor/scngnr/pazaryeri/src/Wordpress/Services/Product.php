@@ -3,7 +3,6 @@
 namespace Scngnr\Pazaryeri\Wordpress\Services;
 
 use Scngnr\Pazaryeri\Wordpress\Helper\{Exception , Request};
-use Scngnr\Pazaryeri\Wordpress\Service;
 use Scngnr\Product\Product as ProductService;
 
 Class product extends Request{
@@ -32,7 +31,21 @@ Class product extends Request{
     *  @author Sercan güngör
     */
 
-    public function create($magzaId, $name, $price, $desc, $shDesc="", $stock, $sku, $manageStock = TRUE, $category = array(), $images = array())
+
+    /**
+    *
+    *
+    *
+    *  @version Master -- BetaTest
+    *  @author Sercan güngör
+    */
+
+    public function retrieve()
+    {
+       print_r($woocommerce->get('customers/25'));
+     }
+
+    public function create($magzaId, $name, $price, $desc, $shDesc="", $stock, $sku, $manageStock = TRUE, $category = 0, $images = array())
     {
       // Woocomerce Ürün yapısı
       $data = [
@@ -43,7 +56,11 @@ Class product extends Request{
           'short_description' => $shDesc,
           'stock_quantity' => $stock,
           'manage_stock' => $manageStock,
-          'categories' => $category,
+          'categories' => [
+            [
+              'id' => $category
+            ]
+          ],
           'images' => $images,
           'sku'  => $sku,
           // 'status'  => "",
@@ -74,10 +91,17 @@ Class product extends Request{
     *  @author Sercan güngör
     */
 
-    public function update($magzaId,$pazaryeriProductId)
+    public function update($magzaId,$pazaryeriProductId, $price, $category, $pictures = array())
     {
+
       $data = [
-          'regular_price' => '24.54',
+          'regular_price' => $price,
+          'categories' => [
+            [
+              'id' => $category
+            ]
+          ],
+          'images' => $pictures,
           // 'name' => $name,
           // 'type' => 'simple',
           // 'regular_price' =>$price,

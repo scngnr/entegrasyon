@@ -9,90 +9,187 @@
       <!--begin::Products-->
       <div class="card card-flush">
         <!--begin::Card header-->
-        <div class="card-header align-items-center py-5 gap-2 gap-md-5">
-          <!--begin::Card title-->
-          <div class="card-title">
-            <!--begin::Search-->
-            <div class="d-flex align-items-center position-relative my-1">
-              <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-              <span class="svg-icon svg-icon-1 position-absolute ms-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="black" />
-                  <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="black" />
-                </svg>
-              </span>
-              <!--end::Svg Icon-->
-              <input type="text" data-kt-ecommerce-product-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Ürün Ara" wire:model="searchProduct"/>
-            </div>
-            <!--end::Search-->
+        <div class="card-header pt-7">
+          <!--begin::Title-->
+          <h3 class="card-title align-items-start flex-column"><!--begin::Search-->
+          <div class="position-relative my-1">
+            <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+            <span class="svg-icon svg-icon-2 position-absolute top-50 translate-middle-y ms-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="black" />
+                <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="black" />
+              </svg>
+            </span>
+            <!--end::Svg Icon-->
+            <input wire:model="searchProduct" type="text" data-kt-table-widget-4="search" class="form-control w-150px fs-7 ps-12" placeholder="Search" />
           </div>
-          <!--end::Card title-->
-          <!--begin::Card toolbar-->
-          <div class="card-toolbar row">
-            <div class="col-md-3">
-              <a href="" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                <i class="bi bi-three-dots fs-3"></i>
-              </a>
-                <!--begin::Menu-->
-                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-200px py-4" data-kt-menu="true">
-                  <!--begin::Menu item-->
-                  <div class="menu-item px-3">
-                    <a type="button" class="menu-link px-3" wire:click="topluGonder('woocommerce', 2)">WooCommerce Ürün Gönder</a>
+          <!--end::Search-->
+            <span class="text-gray-400 mt-1 fw-bold fs-6"></span>
+          </h3>
+          <!--end::Title-->
+            <!--begin::Actions-->
+            <div class="card-toolbar">
+              <!--begin::Filters-->
+              <div class="d-flex flex-stack flex-wrap gap-4">
+                <!--begin::Destination-->
+                <div class="d-flex align-items-center fw-bolder">
+                  <!--begin::Label-->
+                  <div class="text-muted fs-7 me-2">Kategoriler
+                    <div class="text-muted fs-7 me-2">  @if($category) Seçildi -
+                      <?php   $productClass = new \Scngnr\Product\Product;  $findCategory =$productClass->category->find($category);  ?>{{$findCategory->categoryAdi}} @endif</div>
                   </div>
-                  <!--end::Menu item-->
-                  <!--begin::Menu item-->
-                  <div class="menu-item px-3">
-                    <a type="button" class="menu-link px-3" >Seçili Ürünleri Eşleştir</a>
-                  </div>
-                  <!--end::Menu item-->
-                  <!--begin::Menu item-->
-                  <div class="menu-item px-3">
-                    <a type="button" class="menu-link px-3" href="/product/category/eslestir/{{json_encode($selectedCheckBox)}}" >Kategori Eşleştir</a>
-                  </div>
-                  <!--end::Menu item-->
-                  <!--begin::Menu item-->
-                  <div class="menu-item px-3">
-                    <a type="button" class="menu-link px-3" onclick="Livewire.emit('openModal', 'product.dashboard.modal.product-seller-account-add', {{ json_encode(["productId" => $selectedCheckBox]) }})"  >Pazaryeri Fiyat Ekle</a>
-                  </div>
-                  <!--end::Menu item-->
-                  <!--begin::Menu item-->
-                  <div class="menu-item px-3">
-                    <a type="button" class="menu-link px-3" onclick="Livewire.emit('openModal', 'product.dashboard.modal.product-statu', {{ json_encode(["productId" => $selectedCheckBox]) }})" >Ürün Durum Değiştir</a>
+                  <!--end::Label-->
 
-                  </div>
-                  <!--end::Menu item-->
-                  <hr>
-                  <!--begin::Menu item-->
-                  <div class="menu-item px-3">
-                    <a href="/xmlservice" class="menu-link px-3 m-auto" data-kt-ecommerce-product-filter="delete_row" disabled>Sil</a>
-                  </div>
-                  <!--end::Menu item-->
+                    <!--begin::Menu-->
+                    <button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                      <!--begin::Svg Icon | path: icons/duotune/general/gen024.svg-->
+                      <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
+                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect x="5" y="5" width="5" height="5" rx="1" fill="#000000" />
+                            <rect x="14" y="5" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
+                            <rect x="5" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
+                            <rect x="14" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
+                          </g>
+                        </svg>
+                      </span>
+                      <!--end::Svg Icon-->
+                    </button>
+                    <!--begin::Menu 3-->
+                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
+                      <!--begin::Menu item-->
+                      <div class="menu-item px-3">
+                        <a wire:click="categories('')"  class="menu-link px-3">Tüm Kategoriler</a>
+                      </div>
+                      <!--end::Menu item-->
+                      @foreach($allCategory as $cat)
+                        @if($cat->parentCategory == '')
+                        <?php $subAllCat = true ?>
+                        <div class="">
+                          <!--begin::Menu item-->
+                          <div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
+                            <a href="#" class="menu-link px-3">
+                              <span class="menu-title">{{$cat->categoryAdi}}</span>
+                              <span class="menu-arrow"></span>
+                            </a>
+                            <?php $subCategory = \Scngnr\Xmlservice\Models\XmlKategori::where('parentCategory', $cat->id)->get(); ?>
+                            <!--begin::Menu sub-->
+                            <div class="menu-sub menu-sub-dropdown w-175px py-4">
+                              @foreach($subCategory as $category)
+                                @if($subAllCat)
+                                  <!--begin::Menu item-->
+                                  <div class="menu-item px-3">
+                                    <a wire:click="categories('{{$cat->id}}')"  class="menu-link px-3">Tüm Kategoriler</a>
+                                  </div>
+                                  <!--end::Menu item-->
+                                  <?php $subAllCat = false ?>
+                                @endif
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-3">
+                                  <a wire:click="categories('{{$category->id}}')"  class="menu-link px-3">{{$category->categoryAdi}}</a>
+                                </div>
+                                <!--end::Menu item-->
+                              @endforeach
+                            </div>
+                            <!--end::Menu sub-->
+                          </div>
+                          <!--end::Menu item-->
+                        </div>
+                        @elseif( $cat->parentCategory == 0 )
+                        <!--begin::Menu item-->
+                        <div class="menu-item px-3">
+                          <a wire:click="categories('{{$category->id}}')"  class="menu-link px-3">{{$cat->categoryAdi}}</a>
+                        </div>
+                        <!--end::Menu item-->
+                        @endif
+                      @endforeach
+                    </div>
+                    <!--end::Menu 3-->
+                    <!--end::Menu-->
                 </div>
-                <!--end::Menu-->
-            </div>
-            <div class="col-md-3">
-                <!--begin::Label-->
-                <div class="text-muted fs-7 me-2">Ürün Sayısı</div>
-                <!--end::Label-->
-              <!--begin::Select-->
-              <select wire:model="paginate" class="form-select form-select-transparent text-dark fs-7 lh-1 fw-bolder py-0 ps-3 w-auto" data-control="select2" data-hide-search="true" data-dropdown-css-class="w-150px"  >
-                <option></option>
-                <option value="25"  selected="selected" >25</option>
-                <option value="50">50</option>
-                <option value="75">75</option>
-                <option value="100">100</option>
-              </select>
-              <!--end::Select-->
-            </div>
-            <div class="col-md-3">
+                <!--end::Destination-->
+                <!--begin::Status-->
+                <div class="d-flex align-items-center fw-bolder">
+                  <!--begin::Label-->
+                  <div class="text-muted fs-7 me-2">Toplu İşlemler</div>
+                  <!--end::Label-->
+                  <!--begin::Select-->
+                    <div class="col-md-3">
+                      <a href="" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                        <span class="svg-icon svg-icon-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                              <rect x="5" y="5" width="5" height="5" rx="1" fill="#000000" />
+                              <rect x="14" y="5" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
+                              <rect x="5" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
+                              <rect x="14" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
+                            </g>
+                          </svg>
+                        </span>
+                      </a>
+                        <!--begin::Menu-->
+                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-200px py-4" data-kt-menu="true">
+                          <!--begin::Menu item-->
+                          <div class="menu-item px-3">
+                            <a type="button" class="menu-link px-3" wire:click="topluGonder('woocommerce', 2)">WooCommerce Ürün Gönder</a>
+                          </div>
+                          <!--end::Menu item-->
+                          <!--begin::Menu item-->
+                          <div class="menu-item px-3">
+                            <a type="button" class="menu-link px-3" >Seçili Ürünleri Eşleştir</a>
+                          </div>
+                          <!--end::Menu item-->
+                          <!--begin::Menu item-->
+                          <div class="menu-item px-3">
+                            <a type="button" class="menu-link px-3" href="/product/category/eslestir/{{json_encode($selectedCheckBox)}}" >Kategori Eşleştir</a>
+                          </div>
+                          <!--end::Menu item-->
+                          <!--begin::Menu item-->
+                          <div class="menu-item px-3">
+                            <a type="button" class="menu-link px-3" onclick="Livewire.emit('openModal', 'product.dashboard.modal.product-seller-account-add', {{ json_encode(["productId" => $selectedCheckBox]) }})"  >Pazaryeri Fiyat Ekle</a>
+                          </div>
+                          <!--end::Menu item-->
+                          <!--begin::Menu item-->
+                          <div class="menu-item px-3">
+                            <a type="button" class="menu-link px-3" onclick="Livewire.emit('openModal', 'product.dashboard.modal.product-statu', {{ json_encode(["productId" => $selectedCheckBox]) }})" >Ürün Durum Değiştir</a>
+                          </div>
+                          <!--end::Menu item-->
+                          <hr>
+                          <!--begin::Menu item-->
+                          <div class="menu-item px-3">
+                            <a href="/xmlservice" class="menu-link px-3 m-auto" data-kt-ecommerce-product-filter="delete_row" disabled>Sil</a>
+                          </div>
+                          <!--end::Menu item-->
+                        </div>
+                        <!--end::Menu-->
+                    </div>
+                  <!--end::Select-->
+                </div>
+                <!--end::Status-->
+                <!--begin::Status-->
+                <div class="d-flex align-items-center fw-bolder">
+                  <!--begin::Label-->
+                  <div class="text-muted fs-7 me-2">Ürün Sayısı</div>
+                  <!--end::Label-->
+                  <div class="col-md-3">
+                    <!--begin::Select-->
+                    <select wire:model="paginate" class="form-select form-select-transparent text-dark fs-7 lh-1 fw-bolder py-0 ps-3 w-auto" data-control="select2" data-hide-search="true" data-dropdown-css-class="w-150px"  >
+                      <option></option>
+                      <option value="25"  selected="selected" >25</option>
+                      <option value="50">50</option>
+                      <option value="75">75</option>
+                      <option value="100">100</option>
+                    </select>
+                    <!--end::Select-->
+                  </div>
+                </div>
+                <!--end::Status-->
 
-            <!--begin::Add product-->
-            <a href="/product/add" class="btn btn-primary">Yeni Ürün Ekle</a>
-            <!--end::Add product-->
+              </div>
+              <!--begin::Filters-->
             </div>
+            <!--end::Actions-->
           </div>
-          <!--end::Card toolbar-->
-        </div>
         <!--end::Card header-->
         <!--begin::Card body-->
         <div class="card-body pt-0 overflow-auto">

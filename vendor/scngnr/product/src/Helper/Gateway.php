@@ -21,7 +21,7 @@ Class Gateway {
     'varyation'           => 'varyation',
     'magza'               => 'magza',
     'magzaPrice'          => 'magzaPrice',
-    'match'               => 'matches',
+    'matches'             => 'matches',
     'pazaryeriMatchInfo'  => 'pazaryeriMatchInfo',
   );
 

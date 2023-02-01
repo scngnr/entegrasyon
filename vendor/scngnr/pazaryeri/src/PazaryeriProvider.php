@@ -13,9 +13,9 @@ class PazaryeriProvider extends ServiceProvider
 
   public function boot()
   {
-    // 
-    // $this->loadMigrationsFrom(__DIR__ . '/0Database/migrations');   //Database migration
-    // $this->loadRoutesFrom(__DIR__.'/01Routes/web.php');              //Route
-    // $this->loadViewsFrom(__DIR__.'/02views', 'view');     //Views klasörü
+
+    $this->loadMigrationsFrom(__DIR__ . 'Wordpress/Database/migrations');   //Database migration
+    // $this->loadRoutesFrom(__DIR__.'Wordpress/Routes/web.php');              //Route
+    // $this->loadViewsFrom(__DIR__.'Wordpress/views', 'view');     //Views klasörü
   }
 }

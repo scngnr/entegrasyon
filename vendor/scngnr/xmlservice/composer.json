@@ -7,12 +7,12 @@
         }
     },
     "extra": {
-  "laravel": {
-    "providers": [
-      "Scngnr\\Xmlservice\\Provider"
-    ]
-  }
-},
+      "laravel": {
+        "providers": [
+          "Scngnr\\Xmlservice\\Provider"
+        ]
+      }
+    },
     "authors": [
         {
             "name": "scngnr",

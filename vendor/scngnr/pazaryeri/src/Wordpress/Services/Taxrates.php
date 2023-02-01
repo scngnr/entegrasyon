@@ -1,10 +1,10 @@
 <?php
 
-namespace Scngnr\Trendyol\Services;
+namespace Scngnr\Pazaryeri\Wordpress\Services;
 
-use Scngnr\Trendyol\Helper\exception;
+use Scngnr\Pazaryeri\Wordpress\Helper\{Exception , Request};
 
-Class Claim {
+Class Taxrates {
 
       /**
       *
