@@ -37,9 +37,8 @@ class productIndex extends Command
      */
     public function handle()
     {
-      $controller = new \Scngnr\Parasut\Http\Controllers\Product();
+      $controller = new \Scngnr\Parasut\Http\Controllers\ProductController();
       $controller->index();
-
 
     }
 }

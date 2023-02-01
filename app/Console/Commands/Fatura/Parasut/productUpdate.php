@@ -38,7 +38,7 @@ class productUpdate extends Command
     public function handle()
     {
       $controller = new \Scngnr\Parasut\Http\Controllers\ProductController();
-      $controller->index();
+      $controller->create(1);
 
 
     }
