@@ -9,7 +9,7 @@ use Scngnr\Parasut\Request;
 class salesInvoice extends Request
 {
   public $baseEndPoint = "https://api.parasut.com/v4/38340";
-  public $apiurl = "stock_movements" ;
+  public $apiurl = "product" ;
 
     $this->baseEndPoint = "{$this->baseEndPoint}/{$this->apiurl}";
     /**
@@ -18,8 +18,8 @@ class salesInvoice extends Request
     *  @author Sercan güngör
     */
 
-    public function index(){
+    public function index($id){
 
-      $this->getResponse($access_token, 'GET', $this->baseEndPoint);
+      $this->getResponse($access_token, 'GET', $this->baseEndPoint . '/' . $id . 'inventory_levels');
     }
 }

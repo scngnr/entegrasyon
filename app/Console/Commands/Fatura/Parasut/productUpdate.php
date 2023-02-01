@@ -4,14 +4,14 @@ namespace App\Console\Commands\Fatura\Parasut;
 
 use Illuminate\Console\Command;
 
-class Product extends Command
+class productUpdate extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'Fatura:Parasut:Product';
+    protected $signature = 'Fatura:Parasut:product:update';
 
     /**
      * The console command description.
@@ -37,8 +37,9 @@ class Product extends Command
      */
     public function handle()
     {
-      $controller = new \Scngnr\Parasut\Http\Controllers\Auth();
-      $controller->oAuthToken2();
+      $controller = new \Scngnr\Parasut\Http\Controllers\ProductController();
+      $controller->index();
+
 
     }
 }

@@ -9,7 +9,7 @@ use Scngnr\Parasut\Request;
 class salesInvoice extends Request
 {
   public $baseEndPoint = "https://api.parasut.com/v4/38340";
-  public $apiurl = "stock_movements" ;
+  public $apiurl = "e_invoice_inboxes" ;
 
     $this->baseEndPoint = "{$this->baseEndPoint}/{$this->apiurl}";
     /**

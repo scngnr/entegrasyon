@@ -5,32 +5,5 @@ use Scngnr\Parasut\Helper\Gateway;
 
 Class Parasut extends Gateway {
 
-  /**
-	 *
-	 * @description N11 Api Key
-	 * @param string $apiKey
-	 *
-	 */
-	 public $apiKey;
 
-	 public $apiSecret;
-
-	 public function __construct($apiKey,$apiSecret)
-	 {
-
-		 		$this->apiKey = $apiKey;
-				$this->apiSecret = $apiSecret;
-	 }
-
-	 /**
-	 *
-	 *@param
-	 *
-	 *
-	 *
-	 */
-
-	 public function Auth(){
-
-	 }
 }

@@ -16,7 +16,25 @@ Class Gateway {
   public $apiSecret;
 
   protected $allServices = array(
-    'Margin' => 'Acctrade'
+    'accounts'          => 'accounts',
+    'bankFees'          => 'bankFees',
+    'contacts'          => 'contacts',
+    'eArchive'          => 'eArchive',
+    'eInvoiceInboxes'   => 'eInvoiceInboxes',
+    'eInvoices'         => 'eInvoices',
+    'employees'         => 'employees',
+    'eSmm'              => 'eSmm',
+    'inventoryLevels'   => 'inventoryLevels',
+    'productCategories' => 'productCategories',
+    'products'          => 'products',
+    'purchaseBill'      => 'purchaseBill',
+    'salaries'          => 'salaries',
+    'salesInvoice'      => 'salesInvoice',
+    'shipmentDocuments' => 'shipmentDocuments',
+    'stockMovements'    => 'stockMovements',
+    'tags'              => 'tags',
+    'taxes'             => 'taxes',
+    'warehouses'        => 'warehouses',
 
   );
 

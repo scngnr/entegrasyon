@@ -2,32 +2,12 @@
 
 namespace Scngnr\Mdent\FaturaEnt\Parasut\Http\Controllers;
 
-use App\Models\Urunler;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Http;
-use Scngnr\Mdent\FaturaEnt\Parasut\Models\Parasut;
+use Scngnr\Parasut\Parasut;
 
 class SatisFatuasi extends Controller
 {
-
-  public function __construct(){
-
-    $parasut = Parasut::find(1);
-    $this->parasutCompanyId = $parasut->firmaId;
-    $this->access_token = $parasut->accessToken;
-
-    $this->baseEndPoint = "https://api.parasut.com/v4/{$this->parasutCompanyId}/sales_invoices";
-  }
-  public function __construct(){
-    $this->parasutCompanyId = "348340";
-
-    //Auth Kontroller sınıfını kullanarak access_token al
-    $controller = new \Scngnr\Mdent\FaturaEnt\Parasut\Http\Controllers\Auth();
-    $response = $controller->oAuthToken();
-    //$this->access_token = "w00U9BpQFcdCjfzSMAEdXkrdGrYvlObryFx17QaX2Vs";
-    $this->access_token = $response['access_token'];
-  }
+  
 
   // Parasut sisteminde kayıtlı tüm kategorileri döndürür.
   public function index(){
