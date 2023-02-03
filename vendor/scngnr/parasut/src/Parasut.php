@@ -5,5 +5,5 @@ use Scngnr\Parasut\Helper\Gateway;
 
 Class Parasut extends Gateway {
 
-
+  
 }

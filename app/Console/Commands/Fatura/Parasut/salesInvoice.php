@@ -52,7 +52,7 @@ class salesInvoice extends Command
           $orderDetail = $orderClass->orderDetail->findOrderDetail($orders[$i]->id);
           $orderDetail->billingAddress = json_decode($orderDetail->billingAddress);
           //Faturaya konu edilen ürün listesini al
-          $orderDetailItem = $orderClass->orderDetailItem->findOrderDetailItem($orders[$i]->id);
+          $orderDetailItem = $orderClass->orderDetailItem->findOrderDetailItems($orders[$i]->id);
 
           //Sipariş veren Müşteri Bilgileri Veritabanında kayıtlı mı ?
           $orderCustomer = $orderClass->orderCustomer->findOrderCustomer($orderDetail->billingAddress->email);
@@ -69,8 +69,14 @@ class salesInvoice extends Command
             $parasutClass->customerMatch->create($orderCustomer->id, $customer['data']['id']);
           }
 
+          //Kayıtlı müşterinin paraşüt Idsini fatura servisine gönder
+          $parasutCustomer = $parasutClass->customerMatch->where($orderCustomer->id);
+          //SAtış Servisi
           $salesController = new \Scngnr\Parasut\Http\Controllers\salesInvoiceController();
-          $salesInvoiceRsponse = $salesController->create($orders[$i]);
+          //Fatura taslağı oluşturulmak üzere Sipaiş bilgilerini parşüte ilet
+          $faturaInfo = $salesInvoiceRsponse = $salesController->create($orders[$i], $orderDetail, $orderDetailItem, $parasutCustomer);
+          //Gelen fatura numarasını veritabanına kayıt et
+          $orderClass->order->updateFaturaNo($orders[$i]->id, $faturaInfo['data']['id']);
         }
       }
     }

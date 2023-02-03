@@ -1,30 +1,40 @@
 <?php
 
-namespace Scngnr\Pazaryeri\N11\Controller;
+namespace Scngnr\Pazaryeri\N11\Controllers;
 
 use App\Http\Controllers\Controller;
 use IS\PazarYeri\N11\N11Client;
 use Illuminate\Http\Request;
-use App\Models\Urunler;
+use Scngnr\Product\Product;
 
 class ProductController extends Controller
 {
-    public function saveProduct(){
+
+  /**
+  *
+  *
+  *
+  *
+  *
+  *
+  */
+
+    public function create(){
 
       $client = new N11Client();
-      $client->setApiKey('801d611a-58df-441a-b146-468d624bf145');
-      $client->setApiPassword('QQUm3FV27f0U0JGI');
-      $urun = Urunler::find(2);
-      $attribute = json_decode($urun->pazaryeriKategoriBilgileri, true);
+      $client->setApiKey('159dec2a-4b09-46df-8287-c3fa228904a0');
+      $client->setApiPassword('TncaxGtCdMm6ypRm');
 
-      //dd($client->product->getProductByProductId(522663140));
-      dd(
-      $client->product->SaveProduct(
+      $productClass = new  Product;
+      $product = $productClass->product->find($id);
+
+
+      $response = $client->product->SaveProduct(
           array(
-						'productSellerCode' => $urun->stokCode,
-						'title' => $urun->adi,
-						'subtitle' => $urun->adi,
-						'description' => $urun->aciklama,
+						'productSellerCode' => $product->stokCode,
+						'title' => $product->name,
+						'subtitle' => $product->name,
+						'description' => $product->description,
             'attributes' => array(
               'attribute' => array(
               )
@@ -32,12 +42,12 @@ class ProductController extends Controller
             'category' => array(
 							'id' => '1001321'
 						),
-						'price' => $urun->fiyati,
+						'price' => $product->price,
 						'currencyType' => '1',
 						'images' => array(
 							'image' => array(
 								array(
-									'url' => $urun->resim,
+									'url' => $product->pictures,
 									'order' => '1',
 								)
 							)
@@ -64,8 +74,8 @@ class ProductController extends Controller
 									'oem' => '',
 									'quantity' => '0',
 									'n11CatalogId' => '',
-									'sellerStockCode' => $urun->stokCode,
-									'optionPrice' => $urun->fiyati,
+									'sellerStockCode' => $product->stokCode,
+									'optionPrice' => $product->price,
 									'attributes' => array(
 										'attribute' => array(
 
@@ -92,10 +102,9 @@ class ProductController extends Controller
 						'groupItemCode' => '',
 						'itemName' => ''
 					)
-				));
+				);
 
-
-
+        dd($response);
     }
 
     public function databaseAttributeSave(Request $request){

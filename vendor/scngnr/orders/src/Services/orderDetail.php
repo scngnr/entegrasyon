@@ -104,7 +104,7 @@ Class orderDetail {
 
     public function update($id, $orderId, $billingAddress, $shippingAddress, $wp_customerId){
 
-      $order =  en_orders_detail::find($orderId);
+      $order =  en_orders_detail::find($id);
       $order->orderId = $orderId;
       $order->billingAddress   = $billingAddress;
       $order->shippingAddress   = $shippingAddress;

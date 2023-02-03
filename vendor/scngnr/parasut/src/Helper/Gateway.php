@@ -41,6 +41,7 @@ Class Gateway {
     'productMatch'      => 'productMatch',
     'categoryMatch'     => 'categoryMatch',
     'customerMatch'     => 'customerMatch',
+    'magzaInfo'         => 'magzaInfo',
   );
 
   /**

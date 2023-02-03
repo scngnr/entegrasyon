@@ -90,6 +90,31 @@ Class pazaryeriMatchInfo {
 
     }
 
+        /**
+        *
+        * Veritabanı where - First Araması
+        *
+        *
+        *  @param string productId
+        *  @param string pazaryeri
+        *  @param string magaza
+        *  @param string fiyat
+        *  @param string fiyatKaynak
+        *  @param string indirimliFiyat
+        *  @param string indirimliFiyatBaslangic
+        *  @param string indirimliFiyatBitis
+        *  @param string status
+        *
+        *  @version Master -- BetaTest
+        *  @author Sercan güngör
+        */
+
+        public function where($pazaryeriProductId){
+
+          return pazaryeri_product_info::where('pazaryeriProductId', $pazaryeriProductId)
+                                  ->first();
+
+        }
   /**
   *
   * Kayıtlı Mağazaya Yeni Ürün Fiyatı Ekle

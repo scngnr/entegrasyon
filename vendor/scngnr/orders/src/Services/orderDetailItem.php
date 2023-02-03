@@ -56,6 +56,21 @@ Class orderDetailItem {
                           ->first();
     }
 
+    /**
+    * Veritabanı Like Araması
+    *
+    *
+    *  @param bool $paginate --Default False
+    *  @param int $paginate   --Value
+    *  @version Master -- BetaTest
+    *  @author Sercan güngör
+    */
+
+    public function findOrderDetailItems($orderId)
+    {
+    return en_orders_detail_items::where('orderId', $orderId)
+                          ->get();
+    }
 
     /**
     * Veritabanına Yeni Ürün Ekle

@@ -6,6 +6,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Jobs\Pazaryeri\Wordpress\Category\Update as categoryUpdate;
 use App\Jobs\Pazaryeri\Wordpress\Product\Update as productUpdate;
+use App\Jobs\Pazaryeri\Wordpress\Orders;
 
 class Kernel extends ConsoleKernel
 {
@@ -27,13 +28,12 @@ class Kernel extends ConsoleKernel
       //    //$schedule->command("Pazaryeri:wordpress:categoryUpdate --magzaId=$i")->everyMinute();
       // }
 
-      categoryUpdate::dispatch();
-      productUpdate::dispatch();
+      //categoryUpdate::dispatch();
+      //productUpdate::dispatch();
 
-      // $schedule->command('xml:productCheck')->hourly();
-      // $schedule->command('trendyol:productUpdate')->hourly();
-      // $schedule->command('hepsiBurada:eslesenUrunGuncelle')->hourly();
 
+      $schedule->command('Pazaryeri:wordpress:orders')->everyMinute();
+      // $schedule->command('Fatura:Parasut:salesInvoice')->everyMinute();
 
 
     }

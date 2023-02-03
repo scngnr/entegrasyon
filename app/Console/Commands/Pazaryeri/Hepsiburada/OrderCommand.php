@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\Pazaryeri\Wordpress;
+namespace App\Console\Commands\Pazaryeri\Hepsiburada;
 
 use Illuminate\Console\Command;
 use Scngnr\Product\Product;
@@ -12,7 +12,7 @@ class OrderCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'Pazaryeri:wordpress:orders';
+    protected $signature = 'Pazaryeri:Hepsiburada:orders';
 
     /**
      * The console command description.
@@ -38,13 +38,13 @@ class OrderCommand extends Command
      */
     public function handle()
     {
-      $controller = new \Scngnr\Pazaryeri\Wordpress\Controllers\OrdersController();
-      $controller->order(1);
+        $controller = new \Scngnr\Pazaryeri\Wordpress\Controllers\OrdersController();
+        $controller->order(1);
 
-      $controller->orderDetail(1);
+        $controller->orderDetail(1);
 
-      $controller->orderDetailItem(1);
+        $controller->orderDetailItem(1);
 
-      $controller->orderCustomer(1);
+        $controller->orderCustomer(1);
     }
 }

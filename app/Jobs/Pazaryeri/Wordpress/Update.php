@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs\Pazaryeri\Wordpress\Product;
+namespace App\Jobs\Pazaryeri\Wordpress;
 
 use Scngnr\Product\Product;
 use Illuminate\Bus\Queueable;

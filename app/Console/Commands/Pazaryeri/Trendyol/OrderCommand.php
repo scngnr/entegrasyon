@@ -1,24 +1,25 @@
 <?php
 
-namespace App\Console\Commands\Fatura\Parasut;
+namespace App\Console\Commands\Pazaryeri\Trendyol;
 
 use Illuminate\Console\Command;
+use Scngnr\Product\Product;
 
-class Auth extends Command
+class OrderCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'Fatura:Parasut:Auth';
+    protected $signature = 'Pazaryeri:Trendyol:orders';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = '';
+    protected $description = 'Wordpress ile Eşleştirilen ürünler otomatik olarak Günceller';
 
     /**
      * Create a new command instance.
@@ -37,9 +38,13 @@ class Auth extends Command
      */
     public function handle()
     {
-      $controller = new \Scngnr\Parasut\Http\Controllers\Auth();
-      $controller->accesToken();
+        $controller = new \Scngnr\Pazaryeri\Wordpress\Controllers\OrdersController();
+        $controller->order(1);
 
+        $controller->orderDetail(1);
 
+        $controller->orderDetailItem(1);
+
+        $controller->orderCustomer(1);
     }
 }

@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Console\Commands\Pazaryeri\Wordpress;
+namespace App\Console\Commands\Pazaryeri\Trendyol;
 
 use Illuminate\Console\Command;
 use Scngnr\Product\Product;
 
-class OrderCommand extends Command
+class ProductCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'Pazaryeri:wordpress:orders';
+    protected $signature = 'Pazaryeri:Trendyol:productUpdate';
 
     /**
      * The console command description.
@@ -38,13 +38,13 @@ class OrderCommand extends Command
      */
     public function handle()
     {
-      $controller = new \Scngnr\Pazaryeri\Wordpress\Controllers\OrdersController();
-      $controller->order(1);
+        $productClass = new Product;
+        $product      = $productClass->matches->index();
+        $controller = new \Scngnr\Pazaryeri\Wordpress\Controllers\ProductController();
 
-      $controller->orderDetail(1);
-
-      $controller->orderDetailItem(1);
-
-      $controller->orderCustomer(1);
+        for ($i=0; $i < count($product); $i++) {
+          $controller->statu($product[$i]->magzaId , $product[$i]->productId);
+          echo  $i . "-";
+        }
     }
 }

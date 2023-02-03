@@ -4,15 +4,23 @@ namespace Scngnr\Parasut\Services;
 
 use Scngnr\Parasut\Helper\Exception;
 use Scngnr\Parasut\Helper\Request;
+use Scngnr\Parasut\Helper\apiData;;
 
 
-class salesInvoice extends Request
-{
-  public $firmaId = "348340/";
-  public $apiurl = "sales_invoices" ;
-  public $baseEndPoint = "https://api.parasut.com/v4/";
+class salesInvoice extends Request {
 
-  public $access_token = "Zir7DDllRNBecNRowW_eyz-Moz9CGutoK15TWTtlQXE";
+  //use apiData;
+
+      public $firmaId = "348340/";
+      public $access_token ;
+      public $baseEndPoint = "https://api.parasut.com/v4/";
+      public $apiurl = "sales_invoices" ;
+
+      public function __construct(){
+
+        $controller = new \Scngnr\Parasut\Http\Controllers\Auth();
+        $this->access_token = $controller->accesToken();
+      }
   /**
   *
   *  @version Master -- BetaTest
@@ -32,7 +40,7 @@ class salesInvoice extends Request
 
   public function create($array){
 
-   return  $this->getResponse($this->access_token, 'POST', $this->baseEndPoint . $this->firmaId . $this->apiurl, $array);
+  return $this->getResponse($this->access_token, 'POST', $this->baseEndPoint . $this->firmaId . $this->apiurl, $array);
   }
 
   /**

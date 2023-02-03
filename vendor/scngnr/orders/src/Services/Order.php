@@ -100,4 +100,10 @@ Class Order {
       $order->update();
     }
 
+    public function updateFaturaNo($orderId, $faturaNo){
+      $order =  en_orders::find($orderId);
+      $order->faturaNo     = $faturaNo;
+      $order->update();
+
+    }
 }

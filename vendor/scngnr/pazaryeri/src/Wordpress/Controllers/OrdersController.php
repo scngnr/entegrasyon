@@ -96,6 +96,7 @@ class OrdersController extends Controller
       $wordpressOrderList = $wordpressClass->Order->index($magzaId);
       for ($i=0; $i < count($wordpressOrderList); $i++) {
         //Veritabanında var mı kontrol et
+
         $order = $orderClass->order->findOrder($wordpressOrderList[$i]->id);
         if($order){
 
@@ -104,10 +105,11 @@ class OrdersController extends Controller
           for ($j=0; $j < count($wordpressOrderList[$i]->line_items) ; $j++) {
             if($orderDetailtem){
 
-              $orderClass->orderDetailItem->update($orderDetailtem->id, $order->id, $wordpressOrderList[$i]->line_items[$j]->product_id, $wordpressOrderList[$i]->line_items[$j]->quantity);
             }else {
-
               $orderClass->orderDetailItem->create($order->id, $wordpressOrderList[$i]->line_items[$j]->product_id, $wordpressOrderList[$i]->line_items[$j]->quantity);
+
+              // $orderClass->orderDetailItem->update($orderDetailtem->id, $order->id, $wordpressOrderList[$i]->line_items[$j]->product_id, $wordpressOrderList[$i]->line_items[$j]->quantity);
+
             }
           }
         }
