@@ -7,6 +7,13 @@
             "Scngnr\\Pazaryeri\\": "src/"
         }
     },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "Scngnr\\PazarYeri\\PazaryeriProvider"
+        ]
+      }
+    },
     "authors": [
         {
             "name": "Sercan güngör"

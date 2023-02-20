@@ -43,7 +43,7 @@ class ProductCommand extends Command
         $controller = new \Scngnr\Pazaryeri\N11\Controllers\ProductController();
 
         for ($i=0; $i < 1; $i++) {
-          $controller->create($product[$i]->magzaId , $product[$i]->productId);
+          $controller->create();
           echo  $i . "-";
         }
     }

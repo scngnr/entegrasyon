@@ -8,7 +8,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductKategoriEslestir extends Component
 {
-  public $productId, $searchValue, $magzaId;
+  public $productId, $searchValue, $magzaId ;
    public $pazaryeri = array();
 
    //Url ile Bildirilen Ürün Idsi
@@ -41,6 +41,7 @@ class ProductKategoriEslestir extends Component
 
     public function render()
     {
+
         return view('view::product-kategori-eslestir')->layout('layouts.mainLayout');
     }
 }

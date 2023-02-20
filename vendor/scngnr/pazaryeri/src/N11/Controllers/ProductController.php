@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use IS\PazarYeri\N11\N11Client;
 use Illuminate\Http\Request;
 use Scngnr\Product\Product;
+use Carbon\Carbon;
 
 class ProductController extends Controller
 {
@@ -25,123 +26,81 @@ class ProductController extends Controller
       $client->setApiKey('159dec2a-4b09-46df-8287-c3fa228904a0');
       $client->setApiPassword('TncaxGtCdMm6ypRm');
 
+
       $productClass = new  Product;
-      $product = $productClass->product->find($id);
-
-
-      $response = $client->product->SaveProduct(
-          array(
-						'productSellerCode' => $product->stokCode,
+      $product = $productClass->product->find(71);
+      // dd($client->product->getProductByProductId(498516635));
+      // dd($product->name);
+      $res = $client->product->SaveProduct(
+        	array(
+						'productSellerCode' => $product->stockCode,
 						'title' => $product->name,
-						'subtitle' => $product->name,
+						'subtitle' => "1 LT Isı Yalıtımlı Çay Ve Soğuk Su Termosu Soft Pembe",
 						'description' => $product->description,
             'attributes' => array(
               'attribute' => array(
-              )
+                      'name' => 'marka',
+                      'value' => 'ews',
+                    )
             ),
             'category' => array(
-							'id' => '1001321'
+							'id' => 1001321,
 						),
-						'price' => $product->price,
-						'currencyType' => '1',
-						'images' => array(
-							'image' => array(
-								array(
-									'url' => $product->pictures,
-									'order' => '1',
-								)
-							)
-						),
+            'price' => $product->price,
+            'currencyType' => 'TL',
+            'images' => [
+              'image' => []
+            ],
             'saleStartDate' => '',
-            'saleEndDate' => '',
+						'saleEndDate' => '',
 						'productionDate' => '',
+						'expirationDate' => '',
 						'productCondition' => 1,
 						'preparingDay' => 2,
-						'domestic' => 'false',
 						'discount' => array(
 							'startDate' => '',
 							'endDate' => '',
 							'type' => '',
 							'value' => '',
 						),
-						'shipmentTemplate' => 'Ews',
-            'stockItems' => array(
+            'shipmentTemplate' => "Ews",
+						'stockItems' => array(
 							'stockItem' => array(
-								array(
-									'bundle' => 'false',
-									'mpn' => '',
-									'gtin' => '',
+                'attributes' => array(
+                  'attribute' => array(
+                  )
+                ),
+									'bundle' => false,
+									'mpn' => $product->barcode,
+									'gtin' => $product->barcode,
 									'oem' => '',
-									'quantity' => '0',
-									'n11CatalogId' => '',
-									'sellerStockCode' => $product->stokCode,
+									'quantity' => 0,
+									'n11CatalogId' => null,
+									'sellerStockCode' => $product->stockCode,
 									'optionPrice' => $product->price,
-									'attributes' => array(
-										'attribute' => array(
-
-										)
-									)
+                  'images' => [
+                    'image' => array(
+                        'url' => $product->pictures,
+                        'order' => '1'
+                    )
+                  ],
 								)
-							)
-						),
+							),
+						'domestic' => false,
 						'specialProductInfoList' => array(
-							'specialProductInfo' => array(
-								'key' => '?',
-								'value' => '?',
-							)
+							'specialProductInfo' => array()
 						),
-						'approvalStatus' => '1',
-						'expirationDate' => '',
-
-						'unitInfo' => array(
-							'unitType' => '',
-							'unitWeight' => ''
-						),
-						'maxPurchaseQuantity' => '122',
-						'groupAttribute' => '',
-						'groupItemCode' => '',
-						'itemName' => ''
-					)
+						'approvalStatus' => 1,
+            'groupAttribute' => '',
+            'groupItemCode' => '',
+            'itemName' => '',
+            'unitInfo' => '',
+            'maxPurchaseQuantity' => 1,
+            'sellerNote' => $product->name,
+						)
 				);
 
-        dd($response);
+        dd($res);
     }
 
-    public function databaseAttributeSave(Request $request){
-
-      $frontEndUrunAndCategoryData = explode('.', $request->input('button'));                       //button içerisine eklediğimiz işaratlenen ürünId ve category id bilgisi
-      $frontEndUrunId              = base64_decode(base64_decode($frontEndUrunAndCategoryData[1])); //base64_decode işlemi ile ürün bilgilerini array çeviriyoruz
-      $frontEndUrunId              = explode('[', $frontEndUrunId);
-      $frontEndUrunId              = explode(']', $frontEndUrunId[1]);
-      $frontEndUrunId              = explode(',', $frontEndUrunId[0]);
-
-      $categoryId                  = $frontEndUrunAndCategoryData[0];                               // CategorId button içerisinden alınıyor
-      $frontEndFormDataArrayKeys = array_keys($request->input());                                   //döngüde kullanılıcak bilgilerin keyleri alınıyor
-
-      //dd($frontEndFormDataArrayKeys[1]);
-      //$databaseUrunPBJson['N11']['categoryId']['categoryAttributes'] = array();
-      for ($h=0; $h < count($frontEndUrunId); $h++) {
-
-        $databaseUrun           = Urunler::find($frontEndUrunId[$h]);
-        $databaseUrunPBJson     = json_decode($databaseUrun->pazaryeriKategoriBilgileri, true);
-
-        $databaseUrunPBJson['n11']['category']['id'] = $categoryId;
-
-        // for ($i=0; $i <count($frontEndFormDataArrayKeys) ; $i++) {
-        //
-        //   $keyName = $frontEndFormDataArrayKeys[$i];
-        //   if(($keyName != '_token' ) && ($keyName != 'button')){
-        //
-        //     $databaseUrunPBJson['n11']['attributes']['attribute'][$keyName] = $request->input($keyName);
-        //
-        //   }
-        // }
-        $databaseUrun->pazaryeriKategoriBilgileri = json_encode($databaseUrunPBJson);
-        $databaseUrun->update();
-      }
-
-      //dd($request->input());
-
-      return redirect()->to('product');
-    }
 }

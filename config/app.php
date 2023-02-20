@@ -183,7 +183,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-
+        Jenssegers\Mongodb\MongodbServiceProvider::class,
         /*
          * Package Service Providers...
          */
